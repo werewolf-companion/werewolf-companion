@@ -18,7 +18,10 @@ module.exports = class BotInfo extends client.commandManager.Command {
             developer = database.get(client.constants.developer.id, 'user'),
             admins = [];
 
-        
+        for (let admin of client.constants.staff.filter(s => s.level > 3).slice(1)) {
+            let user = database.get(admin.id, 'user');
+            admins.push(`<@!${admin.id}>`)
+        }
 
         let { temperature, memory, disk } = {
             temperature: {
@@ -38,9 +41,9 @@ module.exports = class BotInfo extends client.commandManager.Command {
 
         return message.send({ message, title: `${message.emote('info')} Werewolf Companion Information` }, [
             ['Name', client.user.username],
-            ['Prefix', `\`${message.prefix}\``],
             ['Version', `v${pkg.version}`],
             ['Developer', `<@!${developer.id}> (${developer.tag})`],
+            ['Admins', admins.join('\n')],
             ['Programmed', `JavaScript\nNodeJS (${process.version})`],
             ['Source Code', 'https://github.com/ApteryxXYZ/Werewolf-Companion'],
             ['RPi Disk Space', `${disk.total} GB Total\n${disk.used} GB Used\n${disk.free} GB Free`],
