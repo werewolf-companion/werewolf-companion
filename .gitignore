@@ -1,0 +1,46 @@
+# local database files
+data/
+*.db
+*.sqlite
+
+# local log files
+logs/
+*.log
+*.txt
+
+# node modules
+node_modules/
+package-lock.json
+
+# secrets
+.env
+*.env
+
+# locales
+locales/
+
+# extenders
+extenders/
+
+# files that contain staff IDs, channel IDs, guild IDs
+Constants.js
+Client.js
+Command.js
+Database.js
+fn.js
+
+# files that contain odds, such as lootbox odds, collectables odds etc
+daily.js
+work.js
+Collection.js
+
+# files that contain how moderation works
+message.js
+
+# audio and images files/folders
+public/
+*.jpg
+*.jepg
+*.png
+*.mp3
+*.wav

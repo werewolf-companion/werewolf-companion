@@ -1,0 +1,47 @@
+[
+    {
+        "name": "rose",
+        "description": "",
+        "id": "i1",
+        "category": "item",
+        "currency": "gold",
+        "price": 25,
+        "path": "rose"
+    },
+    {
+        "name": "gold lootbox",
+        "description": "",
+        "category": "lootbox",
+        "id": "l1",
+        "currency": "gold",
+        "price": 125,
+        "path": "lootbox.gold"
+    },
+    {
+        "name": "rose lootbox",
+        "description": "",
+        "category": "lootbox",
+        "id": "l2",
+        "currency": "rose",
+        "price": 10,
+        "path": "lootbox.rose"
+    },
+    {
+        "name": "gem lootbox",
+        "description": "",
+        "category": "lootbox",
+        "id": "l3",
+        "currency": "gem",
+        "price": 1,
+        "path": "lootbox.gem"
+    },
+    {
+        "name": "token lootbox",
+        "description": "",
+        "category": "lootbox",
+        "id": "l4",
+        "currency": "token",
+        "price": 1,
+        "path": "lootbox.token"
+    }
+]

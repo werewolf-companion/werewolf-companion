@@ -1,0 +1,50 @@
+[
+    {
+        "title": "villager",
+        "currency": "gold",
+        "min": 2,
+        "max": 5,
+        "hours": 0,
+        "daily": 0
+    },
+    {
+        "title": "sorcerer",
+        "currency": "gold",
+        "min": 3,
+        "max": 8,
+        "hours": 10,
+        "daily": 0
+    },
+    {
+        "title": "bodyguard",
+        "currency": "gold",
+        "min": 5,
+        "max": 10,
+        "hours": 25,
+        "daily": 3
+    },
+    {
+        "title": "detective",
+        "currency": "gold",
+        "min": 8,
+        "max": 11,
+        "hours": 50,
+        "daily": 5
+    },
+    {
+        "title": "doctor",
+        "currency": "gold",
+        "min": 10,
+        "max": 13,
+        "hours": 100,
+        "daily": 15
+    },
+    {
+        "title": "president",
+        "currency": "gold",
+        "min": 12,
+        "max": 15,
+        "hours": 250,
+        "daily": 25
+    }
+]
