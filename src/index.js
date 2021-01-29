@@ -9,7 +9,7 @@ const Client = require('./structures/Client'),
     Collection = require('./methods/Collection'),
     Server = require('./structures/Server');
 
-global.client = new Client({ fetchAllMembers: true });
+global.client = new Client();
 global.database = new Database();
 global.server = new Server();
 global.terminal = new Terminal();

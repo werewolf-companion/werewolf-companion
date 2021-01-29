@@ -49,7 +49,7 @@ module.exports = class $Embed extends client.commandManager.Command {
         let title = option('-t'),
             description = option('-d'),
             footer = option('-f'),
-            colour = option('-c') || 'BLUE',
+            colour = option('-c'),
             remove = option('-r') || 'true',
             everyone = option('-e') || 'false',
             json = option('-j') || 'false',
@@ -61,7 +61,7 @@ module.exports = class $Embed extends client.commandManager.Command {
             footer?.length > 2000
         ) return message.send(message._('embed.limitReached'));
 
-        const embed = new Embed({ message, title, description, footer, colour: colour.toUpperCase() });
+        const embed = new Embed({ message, title, description, footer, colour: colour?.toUpperCase() });
 
         if (remove !== 'false') setTimeout(() => message.delete({ timeout: 1000 }));
         if (webhook !== 'false') {
@@ -71,7 +71,7 @@ module.exports = class $Embed extends client.commandManager.Command {
                 webhook.send((everyone === 'true' ? '@everyone' : ''), { embeds: [embed] });
                 setTimeout(() => webhook.delete(), 1000);
             })
-        } else message.channel.send((everyone === 'true' ? '@everyone' : 'abc'), embed);
+        } else message.channel.send((everyone === 'true' ? '@everyone' : ''), embed);
         if (json === 'true') message.send(`Raw embed object:\`\`\`${require('util').inspect(embed)}\`\`\``);
         return;
     }
