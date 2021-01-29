@@ -8,7 +8,7 @@ module.exports = class Restart extends client.commandManager.Command {
             description: 'Completely restart the bot, instantly and remotely.',
             category: module.filename.split('/').slice(-2)[0],
             aliases: ['rs'],
-            tags: ['staff-4'],
+            tags: ['staff-3'],
             hidden: true
         })
     }

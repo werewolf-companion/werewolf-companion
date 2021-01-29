@@ -5,7 +5,7 @@ module.exports = class Logs extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            tags: ['staff-4'],
+            tags: ['staff-3'],
             hidden: true
         })
     }

@@ -5,7 +5,7 @@ module.exports = class Reload extends client.commandManager.Command {
             description: 'Reload bots commands and events, instantly and remotely.',
             category: module.filename.split('/').slice(-2)[0],
             aliases: ['rl'],
-            tags: ['staff-4'],
+            tags: ['staff-3'],
             hidden: true
         })
     }
