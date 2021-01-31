@@ -1,12 +1,7 @@
 const Command = require('../../structures/Command'),
     moment = require('moment'),
-    db = require('quick.db');
-
-const balance = new db.table("balance");
-const prestige = new db.table("prestige");
-const inventory = new db.table("inventory");
-const collectables = new db.table("collectables");
-
+    ms = require('ms');
+    
 module.exports = class Eval extends client.commandManager.Command {
     constructor() {
         super({
