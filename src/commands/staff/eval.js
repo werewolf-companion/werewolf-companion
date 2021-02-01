@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command'),
     moment = require('moment'),
     ms = require('ms');
-    
+
 module.exports = class Eval extends client.commandManager.Command {
     constructor() {
         super({
@@ -28,7 +28,7 @@ module.exports = class Eval extends client.commandManager.Command {
             output = eval(input);
             if (typeof output !== 'string') output = (require('util').inspect(output));
         } catch (error) {
-            output = error.stack,
+            output = error.message,
                 colour = 'RED';
         }
 
