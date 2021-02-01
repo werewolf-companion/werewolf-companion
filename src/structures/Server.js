@@ -55,6 +55,6 @@ module.exports = class Server {
 
         app.listen(process.env.SERVER_PORT, () => { });
         this.app = app;
-        console.log(terminal.log('Web server has been initialized.'));
+        console.log('Web server has been initialized.');
     }
 }
