@@ -1,5 +1,5 @@
 const TIERS = require('../../json/tiers.json'),
-    ms = require('ms'),
+    ms = require('pretty-ms'),
     colorThief = require('colorthief');
 
 module.exports = class Settings extends client.commandManager.Command {
