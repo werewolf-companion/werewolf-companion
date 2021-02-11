@@ -1,7 +1,7 @@
 [
     {
         "name": "rose",
-        "description": "",
+        "description": "A sendable rose you can send to another user.",
         "id": "i1",
         "category": "item",
         "currency": "gold",
@@ -10,7 +10,7 @@
     },
     {
         "name": "gold lootbox",
-        "description": "",
+        "description": "A basic, gold lootbox, with chances of getting gold, sendable and spendable roses and gems.",
         "category": "lootbox",
         "id": "l1",
         "currency": "gold",
@@ -19,7 +19,7 @@
     },
     {
         "name": "rose lootbox",
-        "description": "",
+        "description": "A rose lootbox, with higher chances of getting gold, sendable and spendable roses and gems.",
         "category": "lootbox",
         "id": "l2",
         "currency": "rose",
@@ -28,7 +28,7 @@
     },
     {
         "name": "gem lootbox",
-        "description": "",
+        "description": "A gem lootbox has even higher chances of getting more gold, more sendable and spendable roses and gems.",
         "category": "lootbox",
         "id": "l3",
         "currency": "gem",
@@ -37,7 +37,7 @@
     },
     {
         "name": "token lootbox",
-        "description": "",
+        "description": "The token lootbox has the highest chances of all lootboxes.",
         "category": "lootbox",
         "id": "l4",
         "currency": "token",
