@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command'),
     moment = require('moment'),
-    ms = require('ms');
+    ms = require('pretty-ms');
 
 module.exports = class Eval extends client.commandManager.Command {
     constructor() {
