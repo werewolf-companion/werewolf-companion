@@ -25,9 +25,9 @@
     },
     {
         "title": "detective",
-        "currency": "rose",
-        "min": 1,
-        "max": 3,
+        "currency": "gold",
+        "min": 10,
+        "max": 16,
         "hours": 50,
         "daily": 5
     },
@@ -41,9 +41,9 @@
     },
     {
         "title": "president",
-        "currency": "gold",
-        "min": 15,
-        "max": 20,
+        "currency": "rose",
+        "min": 1,
+        "max": 2,
         "hours": 250,
         "daily": 25
     }
