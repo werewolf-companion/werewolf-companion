@@ -14,7 +14,6 @@ module.exports = class Rose extends client.commandManager.Command {
     async run({ message, args, user }) {
         let inventory = user.inventory,
             quantity = args.length > 1 && Number(args.last()) ? Number(args.pop()) : 1;
-        console.log(inventory, quantity)
         if (inventory['i1'] < quantity) return message.send(`You do not have enough roses to give!`);
 
         let target = database.get(args.join(' '), 'user');
