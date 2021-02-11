@@ -4,15 +4,37 @@ module.exports = {
             this.kind = 'guild';
             this.id = guild.id;
             this.name = guild.name;
-            this.owner = guild.kind ? database.get(guild.owner, 'user') || guild.owner : guild.ownerID;
+            this.owner = guild.kind ? guild.owner : guild.ownerID;
+
             this.settings = guild.settings || {
                 prefix: '*',
                 locale: 'en-gb',
+                disabledCommands: [],
+
                 errors: {
                     invalidCommand: true,
                     missingPermissions: true
-                },
-                disabledCommands: []
+                }
+            }
+
+            this.partnership = guild.partnership || {
+                requestedAt: undefined,
+                partneredAt: undefined,
+
+                content: undefined,
+                tier: undefined,
+                colour: undefined,
+
+                ids: {
+                    channel: undefined,
+                    partnership: undefined,
+                    message: undefined
+                }
+            }
+
+            this.invite = guild.invite || {
+                code: guild.channels ? guild.channels.cache.first().createInvite({ maxAge: 0 }).code : undefined,
+                clicks: 0
             }
         }
 
@@ -20,7 +42,7 @@ module.exports = {
             return await client.guilds.fetch(this.id);
         }
     },
-
+    /*
     SideServer: class {
         constructor(guild, { description, inviteCode } = {}) {
             this.kind = 'sideServer';
@@ -31,4 +53,5 @@ module.exports = {
             this.invite = guild.invite || { code: inviteCode, clicks: 0 };
         }
     }
+    */
 }
