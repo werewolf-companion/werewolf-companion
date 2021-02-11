@@ -9,7 +9,7 @@ const Client = require('./structures/Client'),
     Collection = require('./methods/Collection'),
     Server = require('./structures/Server');
 
-global.client = new Client();
+global.client = new Client({ partials: ['REACTION', 'MESSAGE'] });
 global.database = new Database();
 global.server = new Server();
 global.terminal = new Terminal();
