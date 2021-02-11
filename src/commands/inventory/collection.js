@@ -3,7 +3,7 @@ module.exports = class Collection extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: ['c', 'collect', 'collectables', 'collections'],
+            aliases: ['collectables', 'collections'],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] }
         })
     }

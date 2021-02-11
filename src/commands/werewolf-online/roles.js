@@ -7,7 +7,7 @@ module.exports = class Tips extends client.commandManager.Command {
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS', 'ADD_REACTIONS', 'MANAGE_MESSAGES'] },
-            aliases: ['rs'],
+            aliases: [],
             cooldown: ms('1 minute'),
             tags: []
         })

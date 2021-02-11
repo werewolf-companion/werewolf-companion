@@ -5,7 +5,7 @@ module.exports = class Inventory extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: ['i', 'inv'],
+            aliases: ['inv'],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] }
         })
     }

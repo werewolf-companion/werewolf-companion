@@ -5,7 +5,7 @@ module.exports = class $Embed extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: ['em'],
+            aliases: [],
             permissions: {
                 user: ['MENTION_EVERYONE', 'MANAGE_MESSAGES'],
                 channel: ['EMBED_LINKS', 'MENTION_EVERYONE']

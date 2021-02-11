@@ -5,7 +5,7 @@ module.exports = class Gameplay extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: ['gp']
+            aliases: []
         })
     }
 

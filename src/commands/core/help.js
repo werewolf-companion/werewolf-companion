@@ -13,7 +13,8 @@ module.exports = class Help extends client.commandManager.Command {
             ['Reactions', `Sometimes the bot will response with a reaction rather than a message, here is what those reactions mean;
             ${message.emote('clock')} : You are being rate limited.
             ${message.emote('missing')} : Missing required arguments.
-            ${message.emote('forbidden')} : Forbidden, you cannot use this.`]
+            ${message.emote('forbidden')} : Forbidden, you cannot use this.`],
+            ['Commands', `To view a list of all the bots commands, use \`${message.prefix}commands\`.`]
         ])
     }
 }

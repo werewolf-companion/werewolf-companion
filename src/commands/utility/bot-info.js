@@ -16,11 +16,11 @@ module.exports = class BotInfo extends client.commandManager.Command {
         let users = client.users.cache,
             info = rpi.info,
             developer = database.get(client.constants.developer.id, 'user'),
-            admins = [];
+            mods = [];
 
-        for (let admin of client.constants.staff.filter(s => s.level > 3).slice(1)) {
+        for (let admin of client.constants.staff.filter(s => s.level > 2).slice(1)) {
             let user = database.get(admin.id, 'user');
-            admins.push(`<@!${admin.id}>`)
+            mods.push(`<@!${admin.id}>`)
         }
 
         let { temperature, memory, disk } = {
@@ -43,7 +43,7 @@ module.exports = class BotInfo extends client.commandManager.Command {
             ['Name', client.user.username],
             ['Version', `v${pkg.version}`],
             ['Developer', `<@!${developer.id}> (${developer.tag})`],
-            ['Admins', admins.join('\n')],
+            ['Moderators', mods.join('\n')],
             ['Programmed', `JavaScript\nNodeJS (${process.version})`],
             ['Source Code', 'https://github.com/ApteryxXYZ/Werewolf-Companion'],
             ['RPi Disk Space', `${disk.total} GB Total\n${disk.used} GB Used\n${disk.free} GB Free`],
@@ -65,7 +65,7 @@ exports.run = (client, message, args, prefix, account) => {
         guilds = client.guilds.cache,
         info = rpi.info,
         developer = users.get(config.developer.discord),
-        admins = [],
+        mods = [],
         temperature = {
             cpu: Math.round(info.temperature.cpu)
         },
@@ -81,9 +81,9 @@ exports.run = (client, message, args, prefix, account) => {
         },
         members = 0, commands = 0;
 
-    for (var admin of config.admins) {
+    for (var admin of config.mods) {
         let discord = users.get(admin.discord);
-        admins.push(`${discord} (${discord.tag})`);
+        mods.push(`${discord} (${discord.tag})`);
     }
     guilds.forEach(g => members += g.memberCount);
     for (var module of config.discord.modules) {
@@ -96,7 +96,7 @@ exports.run = (client, message, args, prefix, account) => {
         .addField("Version", package.version, true)
 
         .addField("Developer", `${developer} (${developer.tag})`, true)
-        .addField("Admin", admins.join("\n"), true)
+        .addField("Admin", mods.join("\n"), true)
         .addField("API Latency", client.ws.ping + "ms", true)
 
         .addField("RPi Disk Space", `${disk.total} GB Total\n${disk.used} GB Used\n${disk.free} GB Free`, true)

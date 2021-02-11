@@ -7,7 +7,7 @@ module.exports = class Settings extends client.commandManager.Command {
                 user: ['MANAGE_GUILD'],
                 channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS']
             },
-            aliases: ['set', 'setting']
+            aliases: ['setting', 'config']
         })
     }
 
