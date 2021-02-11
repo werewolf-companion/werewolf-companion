@@ -1,5 +1,5 @@
 const Embed = require('../../structures/Embed'),
-    ms = require('ms');
+    ms = require('pretty-ms');
 
 module.exports = class Tips extends client.commandManager.Command {
     constructor() {
