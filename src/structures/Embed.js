@@ -24,3 +24,5 @@ module.exports = class Embed {
         return embed;
     }
 }
+
+module.exports.MessageEmbed = MessageEmbed;
