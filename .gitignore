@@ -29,9 +29,7 @@ Command.js
 Database.js
 fn.js
 
-# files that contain odds, such as lootbox odds, collectables odds etc
-daily.js
-work.js
+# files that contain odds, such as collectables odds
 Collection.js
 
 # files that contain how moderation works
