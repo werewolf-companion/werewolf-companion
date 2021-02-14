@@ -7,8 +7,8 @@ const random = require('weighted-random'),
         { id: 'l4', gold: { min: 2300, max: 2800 }, send: { min: 100, max: 100 }, spend: { min: 100, max: 100 }, collectable: { odds: [90, 9, 1, 0, 0] }, gem: { min: 1, max: 3 }, token: { min: 1, max: 1 } }
     ],
     ODDS = [
-        { id: 'l1', odds: [{ name: 'gold', weight: 40 }, { name: 'send', weight: 25 }, { name: 'spend', weight: 10 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 1 }, { name: 'token', weight: 0 }] },
-        { id: 'l2', odds: [{ name: 'gold', weight: 35 }, { name: 'send', weight: 20 }, { name: 'spend', weight: 15 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 3 }, { name: 'token', weight: 0 }] },
+        { id: 'l1', odds: [{ name: 'gold', weight: 40 }, { name: 'send', weight: 20 }, { name: 'spend', weight: 15 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 1 }, { name: 'token', weight: 0 }] },
+        { id: 'l2', odds: [{ name: 'gold', weight: 35 }, { name: 'send', weight: 20 }, { name: 'spend', weight: 20 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 3 }, { name: 'token', weight: 0 }] },
         { id: 'l3', odds: [{ name: 'gold', weight: 25 }, { name: 'send', weight: 20 }, { name: 'spend', weight: 20 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 7 }, { name: 'token', weight: 1 }] },
         { id: 'l4', odds: [{ name: 'gold', weight: 20 }, { name: 'send', weight: 20 }, { name: 'spend', weight: 20 }, { name: 'collectable', weight: 25 }, { name: 'gem', weight: 10 }, { name: 'token', weight: 5 }] }
     ],
