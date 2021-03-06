@@ -15,30 +15,3 @@ package-lock.json
 # secrets
 .env
 *.env
-
-# locales
-locales/
-
-# extenders
-extenders/
-
-# files that contain staff IDs, channel IDs, guild IDs
-Constants.js
-Client.js
-Command.js
-Database.js
-fn.js
-
-# files that contain odds, such as collectables odds
-Collection.js
-
-# files that contain how moderation works
-message.js
-
-# audio and images files/folders
-public/
-*.jpg
-*.jepg
-*.png
-*.mp3
-*.wav

@@ -2,7 +2,7 @@ const { write, read } = require("day-log-savings");
 
 module.exports = class Terminal {
     log = (input) => write(input, { prefix: 'LOG' });
-    error = (input) => write(input, { prefix: 'ERROR', console: true });
+    error = (input) => write(input, { prefix: 'ERROR', console: true, stack: false });
     warn = (input) => write(input, { prefix: 'WARN' });
     user = (input) => write(input, { prefix: 'USER' });
     guild = (input) => write(input, { prefix: 'GUILD' });

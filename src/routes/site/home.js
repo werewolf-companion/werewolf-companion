@@ -13,7 +13,7 @@ module.exports = {
         })
 
         app.get('/bot/invite', (req, res) => {
-            client.generateInvite({ permissions: client.constants.permissions })
+            client.generateInvite({ permissions: 8n })
                 .then(invite => res.redirect(invite));
         })
 
@@ -24,7 +24,7 @@ module.exports = {
         app.get('/wwo/:media', (req, res) => {
             let media = req.params.media;
             if (media === 'discord') res.redirect('https://discord.gg/wwo');
-            else if (media === 'instagram') res.redirect('https://www.instagram.com/werewolf.online/');
+        else if (media === 'instagram') res.redirect('https://www.instagram.com/werewolf.online/');
             else if (media === 'twitter') res.redirect('https://twitter.com/werewolf_app');
             else if (media === 'facebook') res.redirect('https://www.facebook.com/werewolf.apps/');
             else if (media === 'subreddit') res.redirect('https://www.reddit.com/r/werewolfonline/');

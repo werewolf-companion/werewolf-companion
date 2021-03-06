@@ -1,0 +1,85 @@
+<style>
+    main {
+        padding: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .header {
+        margin: auto;
+    }
+
+    .header .title {
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 0.2rem 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 0.2rem rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 0.2rem rgba(0, 0, 0, .2), 0 0.2rem 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        font-size: 6rem;
+        cursor: pointer;
+    }
+
+    .header .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .button+.button {
+        margin-left: 1rem;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+        font-size: 1rem;
+        padding: 10px;
+        width: 12rem;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    @media only screen and (min-width: 700px) {
+        main {
+            display: flex;
+        }
+
+        .header .title {
+            font-size: 7rem;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        main {
+            padding-top: 2rem;
+        }
+
+        .header .title {
+            font-size: 6rem;
+        }
+    }
+</style>

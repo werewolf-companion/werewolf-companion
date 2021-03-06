@@ -28,7 +28,7 @@ module.exports = class Eval extends client.commandManager.Command {
             output = eval(input);
             if (typeof output !== 'string') output = (require('util').inspect(output));
         } catch (error) {
-            output = error.message,
+            output = error.stack,
                 colour = 'RED';
         }
 

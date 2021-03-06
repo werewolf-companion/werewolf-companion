@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', { page: error.code }) %>
+        <%- include('../css/home') %>
+</head>
+
+<body>
+    <main>
+        <section class="header">
+            <span class="title" onclick="location.href='/'">
+                <%- error.code %>
+            </span>
+            <span class="subtitle">
+                <%- error.message %>
+            </span><br>
+            <span style="font-size: 1rem; color: gray">
+                <%- error.details %>
+            </span>
+        </section>
+    </main>
+</body>
+
+</html>

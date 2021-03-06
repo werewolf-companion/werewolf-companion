@@ -6,7 +6,7 @@ module.exports = class Daily extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: ms('23.75h'),
+            cooldown: 85500000,
             aliases: []
         })
     }
@@ -14,7 +14,7 @@ module.exports = class Daily extends client.commandManager.Command {
     async run({ message, user }) {
         let now = Date.now(),
             lastDaily = user.cooldowns.daily,
-            twoDay = ms('2d');
+            twoDay = 86400000 * 2;
 
         let streak = user.stats.streak.daily;
         if (now - lastDaily > twoDay) {

@@ -14,9 +14,9 @@ module.exports = class Settings extends client.commandManager.Command {
     async run({ message, args, guild, user }) {
         if (!args[0]) {
             let { prefix, errors, disabledCommands: commands } = guild.settings;
-            return message.send({ message, title: 'Werewolf Companion Settings', description: `To change a setting, use \`${prefix}setting <key> <value>\`.\nExamples: \`${prefix}setting prefix ?\`, \`${prefix}setting missing disable\`\nKey: <setting> [<key>]` }, [
+            return message.send({ message, title: 'Werewolf Companion Settings', description: `To change a setting, use \`${prefix}setting <key> <value/enable/disable>\`.\nExamples: \`${prefix}setting prefix ?\`, \`${prefix}setting missing disable\`\nKey: <setting> [<key>]` }, [
                 ['Prefix [prefix]', prefix !== '*' ? `\`${prefix}\` (custom)` : `\`${prefix}\` (default)`, false],
-                ['Invalid Command [invalid]', `Returns an error if the message conrent starts with the prefix but is not a valid command.\n**${errors.invalidCommand ? 'Enabled' : 'Disabled'}**`],
+                ['Invalid Command [invalid]', `Returns an error if the message content starts with the prefix but is not a valid command.\n**${errors.invalidCommand ? 'Enabled' : 'Disabled'}**`],
                 ['Missing Permissions [missing]', `Returns an error if the bot is missing permissions that are required, users missing permissions will still be sent.\n**${errors.missingPermissions ? 'Enabled' : 'Disabled'}**`],
                 ['Disabled Commands', `Note: To disable/enable a command, type \`${prefix}settings command <command name> <disable/enable>\`\nDisabled Commands: ${commands.length ? `\`${commands.join('`, `')}\`` : 'None'}`, false]
             ])
