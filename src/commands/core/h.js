@@ -1,7 +1,7 @@
 const h = {
-    'hello-world': {
-        title: 'Hello',
-        description: 'World'
+    rose: {
+        title: 'Sendable & Spendable Roses',
+        description: 'There are two types of roses, sendable and spendable. One being an item and the other being a currency.\nSendable roses can be bought for 25 gold by using `{{prefix}}buy i1`, you can then send them to other users using `{{prefix}}rose @user`.\nSpendable roses are roses that you are sent and can be used to purchase items from the shop.'
     }
 }
 
@@ -15,11 +15,13 @@ module.exports = class H extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        if (!args[0]) return;
-        const { title, description } = h[args[0].toLowerCase()] || {};
-        if (title) {
-            message.delete({ timeout: 1 });
-            return message.send({ title: title, description: description });
-        } else return;
+        if (args[0] === 'all') return message.send({ message, title: 'Help Commands', description: Object.entries(h).map(a => `\`${a[0]}\``).join('\n')});
+        else {
+            const { title, description } = h[args[0]?.toLowerCase()] || {};
+            if (title) {
+                message.delete();
+                return message.send({ title, description: description.replace(/{{prefix}}/gi, message.prefix) });
+            } else return;
+        }
     }
 }
