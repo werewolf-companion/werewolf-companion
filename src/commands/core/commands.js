@@ -21,6 +21,6 @@ module.exports = class Commands extends client.commandManager.Command {
         }
 
         for (let category of Object.entries(categories)) fields.push([category[0].toTitleCase(), `\`${category[1].join('`, `')}\``]);
-        return message.send({ message, title: 'Werewolf Companion Commands' }, fields);
+        return message.send({ message, title: 'Wolvesville Companion Commands' }, fields);
     }
 }
