@@ -5,13 +5,12 @@ module.exports = class Rose extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: [],
-            tags: ['args'],
             permissions: { channel: ['USE_EXTERNAL_EMOJIS'] }
         })
     }
 
     async run({ message, args, user }) {
+        if (!args.length) return message.send(`Missing required input \`user\`.\nTo send a rose use \`${message.prefix}rose <user> [quantity]\`.`)
         let inventory = user.inventory,
             quantity = args.length > 1 && Number(args.last()) ? Number(args.pop()) : 1;
         if (inventory['i1'] < quantity) return message.send(`You do not have enough roses to give!`);
