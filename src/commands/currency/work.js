@@ -1,4 +1,3 @@
-const { response } = require('express');
 const LIST = require('../../json/jobs.json'),
     txtgen = require('random-words'),
     ms = require('pretty-ms');
