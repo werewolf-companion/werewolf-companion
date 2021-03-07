@@ -14,6 +14,6 @@ module.exports = class Restart extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        return message.send('Werewolf Companion has successfully been restarted.').then(msg => exec(`pm2 restart ${process.env.PM_ID}`));
+        return message.send('Wolvesville Companion has successfully been restarted.').then(msg => exec(`pm2 restart ${process.env.PM_ID}`));
     }
 }
