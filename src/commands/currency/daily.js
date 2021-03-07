@@ -14,18 +14,17 @@ module.exports = class Daily extends client.commandManager.Command {
     async run({ message, user }) {
         let now = Date.now(),
             lastDaily = user.cooldowns.daily,
-            twoDay = 86400000 * 2;
+            twoDays = 86400000 * 2;
 
         let streak = user.stats.streak.daily;
-        if (now - lastDaily > twoDay) {
+        if (now - lastDaily > twoDays) {
             database.users.set(user.id, 1, 'stats.streak.daily');
             streak = 1;
-        } else database.users.math(user.id, '+', 1, 'stats.streak.daily')
-            && streak++;
+        } else database.users.math(user.id, '+', 1, 'stats.streak.daily') && streak++;
 
         streak = streak + (user.balance.token * 1.5);
         let reward = this.generateReward(streak > 100 ? 100 : streak),
-            description = new String('');
+            description = '';
 
         if (['gold', 'rose', 'gem'].includes(reward.item)) {
             database.users.math(user.id, '+', reward.amount, `balance.${reward.item}`);
@@ -39,7 +38,7 @@ module.exports = class Daily extends client.commandManager.Command {
     generateReward(streak) {
         streak = Math.round(streak - 1);
         let items = [
-            { item: 'gold', amount: Math.ceil(25 + ((streak / 50) * 100)), weight: 100 },
+            { item: 'gold', amount: Math.ceil(25 + ((streak / 50) * 100)), weight: 90 },
             { item: 'rose', amount: Math.floor(1 + (streak / 8)), weight: 25 + ((streak - 1) / 2.75) },
             { item: 'gem', amount: Math.floor(1 + (streak / 40)), weight: streak > 30 ? 5 + (streak / 3.25) : 0 }
         ];
