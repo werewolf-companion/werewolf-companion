@@ -18,6 +18,6 @@ module.exports = class Shop extends client.commandManager.Command {
             products[item.category].push(`**[${item.id}] ${message.emote(item.path)} ${item.name.toTitleCase()} - ${item.price} ${item.currency.toTitleCase()} Each**\n${item.description}`);
         Object.entries(products).forEach(([key, value]) => fields.push([key.toTitleCase(), value.join('\n'), false]))
 
-        return message.send({ message, title: 'Werewolf Companion Shop', description: `To buy an item, use the \`${message.prefix}buy <item id>\`.\nKey: [<id>] <name> - <price> <currency>` }, fields);
+        return message.send({ message, title: 'Wolvesville Companion Shop', description: `To buy an item, use the \`${message.prefix}buy <item id> [quantity]\`.\nKey: [<id>] <name> - <price> <currency>` }, fields);
     }
 }
