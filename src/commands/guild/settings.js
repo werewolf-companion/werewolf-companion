@@ -14,12 +14,12 @@ module.exports = class Settings extends client.commandManager.Command {
     async run({ message, args, guild, user }) {
         if (!args[0]) {
             let { prefix, errors, disabledCommands: commands } = guild.settings;
-            return message.send({ message, title: 'Werewolf Companion Settings', description: `To change a setting, use \`${prefix}setting <key> <value/enable/disable>\`.\nExamples: \`${prefix}setting prefix ?\`, \`${prefix}setting missing disable\`\nKey: <setting> [<key>]` }, [
+            return message.send({ message, title: 'Wolvesville Companion Settings', description: `To change a setting use \`${prefix}setting <setting key> <new value>\`.\nExamples: \`${prefix}setting prefix ?\`, \`${prefix}setting missing disable\`.\nKey: <setting name> [<setting key>]`}, [
                 ['Prefix [prefix]', prefix !== '*' ? `\`${prefix}\` (custom)` : `\`${prefix}\` (default)`, false],
                 ['Invalid Command [invalid]', `Returns an error if the message content starts with the prefix but is not a valid command.\n**${errors.invalidCommand ? 'Enabled' : 'Disabled'}**`],
-                ['Missing Permissions [missing]', `Returns an error if the bot is missing permissions that are required, users missing permissions will still be sent.\n**${errors.missingPermissions ? 'Enabled' : 'Disabled'}**`],
-                ['Disabled Commands', `Note: To disable/enable a command, type \`${prefix}settings command <command name> <disable/enable>\`\nDisabled Commands: ${commands.length ? `\`${commands.join('`, `')}\`` : 'None'}`, false]
-            ])
+                ['Missing Permissions [missing]', `Returns an error if the bot is missing permissions that are required, users missing permissions error message will still sent.\n**${errors.missingPermissions ? 'Enabled' : 'Disabled'}**`],
+                ['Disabled Commands', `To disable/enable a command, type \`${prefix}settings command <command name> <disable/enable>\`\nExample: \`${prefix}settings command abbreviations disable\`.\nDisabled Commands: ${commands.length ? `\`${commands.join('`, `')}\`` : 'None'}`, false]
+            ]);
         } else {
             let option = args[0]?.toLowerCase();
 
@@ -27,15 +27,15 @@ module.exports = class Settings extends client.commandManager.Command {
                 let prefix = args[1].toString().toLowerCase() || '*';
                 if (!prefix.match(/^[a-z0-9`~!#$%^&*()_+-=,./<>?;':"|]{1,5}$/gi)) return message.send('The inputted prefix is invalid and cannout be used. Characters such as `[`, `]`, `{`, `}`, `@`, and `\\` cannot be used and the max length is 5.');
                 database.guilds.set(guild.id, prefix, 'settings.prefix');
-                return message.send(`A custom prefix has been set, I will now only respond to messages which start with \`${prefix}\`.`);
+                return message.send(`A new prefix has been set, I will now only respond to messages which start with \`${prefix}\`.`);
             } else if (option === 'missing') {
                 let boolean = args[1].toLowerCase() || 'enable';
-                if (!['enable', 'disable'].includes(boolean)) return message.send('Second input must either be \'enable\' or \'disable\'*');
+                if (!['enable', 'disable'].includes(boolean)) return message.send('Second input must either be \'enable\' or \'disable\'.');
                 database.guilds.set(guild.id, boolean === 'enable' ? true : false, 'settings.errors.missingPermissions');
                 return message.send(`Sending an error message when the bot is missing required permissions has been ${boolean}d.`);
             } else if (option === 'invalid') {
                 let boolean = args[1].toLowerCase() || 'enable';
-                if (!['enable', 'disable'].includes(boolean)) return message.send('Second input must either be \'enable\' or \'disable\'*');
+                if (!['enable', 'disable'].includes(boolean)) return message.send('Second input must either be \'enable\' or \'disable\'.');
                 database.guilds.set(guild.id, boolean === 'enable' ? true : false, 'settings.errors.invalidCommand');
                 return message.send(`Sending an invalid command message when a user uses the prefix without a valid command has been ${boolean}d.`);
             } else if (option === 'command') {
@@ -43,7 +43,7 @@ module.exports = class Settings extends client.commandManager.Command {
                     boolean = args[2]?.toLowerCase();
                 if (!command) return message.send('No command was found for what was inputted.');
                 if (['settings'].includes(command.name)) return message.send('This commands status cannot be modified.')
-                if (!['enable', 'disable'].includes(boolean)) return message.send('Third input must either be \'enable\' or \'disable\'*');
+                if (!['enable', 'disable'].includes(boolean)) return message.send('Third input must either be \'enable\' or \'disable\'.');
                 let index = guild.settings.disabledCommands.indexOf(command.name);
 
                 if (boolean === 'enable') {
