@@ -1,3 +1,4 @@
+const { response } = require('express');
 const LIST = require('../../json/jobs.json'),
     txtgen = require('random-words'),
     ms = require('pretty-ms');
@@ -15,19 +16,21 @@ module.exports = class Work extends client.commandManager.Command {
     async run({ message, args, user }) {
         let job = LIST.find(j => j.title === user.job.title);
         if (!job) return Object.merge(message.send(`You don't have a job, get one using the \`${message.prefix}job apply <job>\` command. You can view a list of jobs using \`${message.prefix}jobs\`.`), { skipCooldown: true });
-        return this.startJob(message, user, job);
+        let activities = ['repeatWords'],
+            randomActivity = activities[Math.floor(Math.random() * activities.length)];
+        return this[randomActivity](message, user, job);
     }
 
-    startJob(message, user, job) {
-        let sentence = txtgen({ exactly: 5, join: ' ', maxLength: 5 }).replace(/[?!;:,.'"-]/g, '');
-        let time = 5000 + sentence.length * 500,
-        filter = m => m.author.id === message.author.id,
-        { max, min } = job;
+    repeatWords(message, user, job) {
+        let words = txtgen({ exactly: 5, join: ' ', maxLength: 5 }).replace(/[?!;:,.'"-]/g, ''),
+            time = 5000 + words.length * 500,
+            filter = m => m.author.id === user.id,
+            { max, min } = job;
 
-        message.send({ message, title: 'Get Working', description: 'Retype the following 5 words:', image: encodeURI(`https://img.shields.io/badge/-${sentence}-white.png`) });
+        message.send({ message, title: 'Get Working', description: 'Retype the following 5 words:', image: encodeURI(`https://img.shields.io/badge/-${words}-white.png`) });
         return message.channel.awaitMessages(filter, { max: 1, time, errors: ['time'] }).then(response => {
             let msg = response.first(),
-                success = msg.content === sentence;
+                success = msg.content.toLowerCase() === words.toLowerCase();
             if (!success) max = max / 3, min = min / 3;
             return this.finishJob(message, user, max, min, job.currency, success);
         }).catch(response => this.finishJob(message, user, max / 3, min / 3, job.currency, false));
@@ -36,8 +39,7 @@ module.exports = class Work extends client.commandManager.Command {
     finishJob(message, user, max, min, currency, success) {
         let payment = Math.floor(Math.random() * (max - min) + min);
         payment = payment > 0 ? payment : 1;
-        database.users.set(user.id, Object.merge(user,
-            { job: { hours: ++user.job.hours }, balance: { [currency]: user.balance[currency] + payment } }));
+        database.users.set(user.id, Object.merge(user, { job: { hours: ++user.job.hours }, balance: { [currency]: user.balance[currency] + payment } }));
         terminal.currency(`${user.tag} (${user.id}) worked and earned ${payment} ${currency}.`);
 
         if (success) return message.send(`You did a good job and earned ${payment} ${message.emote(currency)}, keep it up!`);
