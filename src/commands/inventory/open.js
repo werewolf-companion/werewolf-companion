@@ -26,13 +26,12 @@ module.exports = class Open extends client.commandManager.Command {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
-            aliases: [],
-            tags: ['args'],
             permissions: { channel: ['USE_EXTERNAL_EMOJIS'] }
         })
     }
 
     async run({ message, args, user }) {
+        if (!args.length) return message.send(`Missing required input \`lootbox type\`.`)
         let query = args.join(' ').toLowerCase(),
             lootboxes = [
                 { keywords: 'l1, lb, gold, gold lootbox', name: 'gold lootbox', id: 'l1', price: 125, currency: 'gold' },
