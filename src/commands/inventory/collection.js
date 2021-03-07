@@ -21,7 +21,7 @@ module.exports = class Collection extends client.commandManager.Command {
             fields.push([`${key.toTitleCase()} (${value.length}/${collection.collectables[key].length})`, roles[key].join(', ') || 'None', false]);
         })
 
-        return message.send({ message, title: 'Werewolf Online Collectables' }, fields);
+        return message.send({ message, title: 'Wolvesville Collectables' }, fields);
     }
 }
 
