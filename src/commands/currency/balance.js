@@ -8,16 +8,10 @@ module.exports = class Balance extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        if (args[0]) user = database.get(args.join(' '), 'user');
+        if (args.length) user = database.get(args.join(' '), 'user');
         if (!user || user.kind !== 'user') return message.send('No user was found with what was inputted.');
 
         let balance = user.balance;
-        return message.send({
-            message, title: `${user.tag}'s Balance`, description:
-                `${message.emote('gold')} ${balance.gold}
-        ${message.emote('rose')} ${balance.rose}
-        ${message.emote('gem')} ${balance.gem}
-        ${message.emote('token')} ${balance.token}`
-        });
+        return message.send({ message, title: `${user.tag}'s Balance`, description: `${message.emote('gold')} ${balance.gold}\n${message.emote('rose')} ${balance.rose}\n${message.emote('gem')} ${balance.gem}\n${message.emote('token')} ${balance.token}`})
     }
 }
