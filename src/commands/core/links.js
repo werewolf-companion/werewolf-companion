@@ -14,6 +14,6 @@ module.exports = class Links extends client.commandManager.Command {
 
         for (const link of links)
             fields.push([link.title, link.value]);
-        return message.send({ message, title: 'Werewolf Companion Links'}, fields);
+        return message.send({ message, title: 'Wolvesville Companion Links'}, fields);
     }
 }
