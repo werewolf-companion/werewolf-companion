@@ -191,7 +191,7 @@ const COMMANDS = {
         limitReached: 'One of the options inputs is greater in length than its limit.'
     },
 
-    /* WEREWOLF ONLINE */
+    /* WOLVESVILLE */
     abbreviations: 'Abbreviations',
 
     role: {
@@ -206,13 +206,13 @@ const COMMANDS = {
     },
 
     media: {
-        title: 'Werewolf Online Links',
+        title: 'Wolvesville Links',
         links: [
-            { title: 'Discord', value: `Chat with other Werewolf Online players in the Discord commuinty.\n[**JOIN**](${DOMAIN}/wwo/discord)` },
-            { title: 'Subreddit', value: `The subreddit for Werewolf Online. Exclusive news, leaks and giveaways aswell as a place to share anything WWO related.\n[**FOLLOW**](${DOMAIN}/wwo/subreddit)` },
-            { title: 'Instagram', value: `The official Instagram page for Werewolf Online with updates, giveaways and posts made by the WWO community!\n[**FOLLOW**](${DOMAIN}/wwo/instagram)` },
-            { title: 'Twitter', value: `Official Twitter account for Werewolf Online, giveaways are hosted here.\n[**FOLLOW**](${DOMAIN}/wwo/twitter)` },
-            { title: 'Facebook', value: `Official Facebook page for Werewolf Online, giveaways are hosted here.\n[**LIKE**](${DOMAIN}/wwo/facebook)` }
+            { title: 'Discord', value: `Chat with other Wolvesville players in the Discord commuinty.\n[**JOIN**](${DOMAIN}/wwo/discord)` },
+            { title: 'Subreddit', value: `The subreddit for Wolvesville. Exclusive news, leaks and giveaways aswell as a place to share anything WWO related.\n[**FOLLOW**](${DOMAIN}/wwo/subreddit)` },
+            { title: 'Instagram', value: `The official Instagram page for Wolvesville with updates, giveaways and posts made by the WWO community!\n[**FOLLOW**](${DOMAIN}/wwo/instagram)` },
+            { title: 'Twitter', value: `Official Twitter account for Wolvesville, giveaways are hosted here.\n[**FOLLOW**](${DOMAIN}/wwo/twitter)` },
+            { title: 'Facebook', value: `Official Facebook page for Wolvesville, giveaways are hosted here.\n[**LIKE**](${DOMAIN}/wwo/facebook)` }
         ]
     }
 }

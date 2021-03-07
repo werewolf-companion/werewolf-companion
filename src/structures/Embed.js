@@ -13,7 +13,7 @@ module.exports = class Embed {
         if (footer && message) embed.setFooter(footer, message.author.displayAvatarURL());
         else if (!footer && message) embed.setFooter(message.author.tag, message.author.displayAvatarURL());
         else if (footer && !message) embed.setFooter(footer);
-        else embed.setFooter('Werewolf Companion');
+        else embed.setFooter('Wolvesville Companion');
 
         for (let i = 0; i < fields.length; i++) {
             let field = fields[i];

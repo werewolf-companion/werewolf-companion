@@ -1,8 +1,8 @@
 const STATUSES = [
-    { type: 'PLAYING', names: ['Werewolf Online']},
-    { type: 'WATCHING', names: ['the chat for @Werewolf Companion help']},
-    { type: 'COMPETING', names: ['Werewolf Online']},
-    { type: 'LISTENING', names: ['the Werewolf Online soundtrack']}
+    { type: 'PLAYING', names: ['Wolvesville']},
+    { type: 'WATCHING', names: ['the chat for @Wolvesville Companion help']},
+    { type: 'COMPETING', names: ['Wolvesville']},
+    { type: 'LISTENING', names: ['the Wolvesville soundtrack']}
 ]
 
 module.exports = class Ready extends client.eventManager.Event {
