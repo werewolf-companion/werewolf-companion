@@ -15,7 +15,7 @@ module.exports = class Inventory extends client.commandManager.Command {
         if (!user || user.kind !== 'user') return message.send('No user was found with what was inputted.');
 
         let inventory = user.inventory,
-            products = { item: [], lootbox: []};
+            products = { item: [], lootbox: [] };
 
         Object.entries(inventory).forEach(([key, value]) => {
             let item = shop.find(i => i.id === key);
@@ -24,6 +24,6 @@ module.exports = class Inventory extends client.commandManager.Command {
 
         let fields = [];
         Object.entries(products).forEach(([key, value]) => value.length ? fields.push([key.toTitleCase(), value.join('\n'), false]) : undefined);
-        return message.send({message,title:`${user.tag}'s Inventory`}, fields);
+        return message.send({ message, title: `${user.tag}'s Inventory`, description: `To send a rose, use \`${message.prefix}rose <user> [quantity]\`.\nTo open a lootbox use \`${message.prefix}open <lootbox type>\`.` }, fields);
     }
 }
