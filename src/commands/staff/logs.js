@@ -10,7 +10,11 @@ module.exports = class Logs extends client.commandManager.Command {
         })
     }
 
-    async run({ message, args, guild, user }) {
-        return message.send({ message, title: `Logs`, description: `Date: ${moment().format('YYYY/MM/DD')} Time: ${moment().format('HH:mm:ss')}` + '```css\n' + terminal.read() + '```' });
+    async run({ message, args }) {
+        let lines = +args[0],
+            path = args[1] || moment().format('YYYY/MM/DD'),
+            logs = terminal.read({ path, lines });
+
+        return message.send({ message, title: `${path} Logs`, description: `Date: ${moment().format('YYYY/MM/DD')} Time: ${moment().format('HH:mm:ss')}` + '```css\n' + logs + '```' })
     }
 }
