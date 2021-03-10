@@ -38,6 +38,7 @@ module.exports = class Server {
         const { render } = require('../routes/fn');
         require('../routes/site/auth').init(app);
         require('../routes/site/home').init(app);
+        require('../routes/site/user').init(app);
         require('../routes/api/random').init(api);
 
         api.use(function (req, res) { res.status(404).json({ error: { code: 404, message: 'Not Found', details: 'Route not found on server.' } }) });
