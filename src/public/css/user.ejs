@@ -1,0 +1,70 @@
+<style>
+    main {
+        padding: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .card {
+        margin: auto;
+        padding: 2rem 0 2rem 0;
+        max-width: 40vw;
+        border-radius: 1.5rem;
+        animation: shadow 5s infinite;
+    }
+
+    @keyframes shadow {
+        50% {
+            box-shadow: 0 20px 30px rgba(24, 24, 24, 0.678);
+        }
+    }
+
+    .card .top {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .card .top img {
+        padding: 1rem;
+        height: 5rem;
+        border-radius: 2rem;
+    }
+
+    .card .section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card .section .title {
+        font-size: 1.7rem;
+        width: 100%;
+    }
+
+    .card .section .balance,
+    .card .section .job,
+    .card .section .stats {
+        padding: 1rem;
+        width: 50%;
+    }
+
+    /* LARGE */
+
+    @media only screen and (min-width: 700px) {
+        main {
+            display: flex;
+        }
+
+        .card {
+            min-width: 40vw;
+        }
+    }
+
+    /* SMALL*/
+
+    @media only screen and (max-width: 700px) {
+        .card {
+            min-width: 80vw;
+        }
+    }
+</style>

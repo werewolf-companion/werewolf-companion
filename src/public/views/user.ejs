@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', { page: target.username }) %>
+</head>
+
+<body>
+    <main>
+        <section class="card">
+            <div class="top">
+                <% if (target.avatar) { %>
+                    <img src="https://cdn.discordapp.com/avatars/<%- `${target.id}/${target.avatar}` %>" />
+                    <% } else { %>
+                        <img src="https://enobpih.apteryx.xyz/images/discord.jpg" />
+                        <% } %>
+                            <span style="font-size: 1.25rem; padding: 1rem; color: gray">
+                                <%- `<span style="font-size: 2.25rem; color: white"><b>${target.username}</b>
+                            </span>#${target.discriminator}` %>
+                            </span>
+            </div>
+
+            <span style="font-size: 2rem">Profile</span>
+            <div class="section">
+                <div class="balance">
+                    <span class="title">Balance</span><br>
+                    <span>
+                        <%- user.balance.gold %> Gold
+                    </span><br>
+                    <span>
+                        <%- user.balance.rose %> Roses
+                    </span><br>
+                    <span>
+                        <%- user.balance.gem %> Gems
+                    </span><br>
+                    <span>
+                        <%- user.balance.token %> Tokens
+                    </span>
+                </div>
+                <div class="job">
+                    <% var job=jobs.find(j=> j.title === user.job.title); %>
+                        <span class="title">Job</span><br>
+                        <span>
+                            <%- job ? job.title.toTitleCase() : 'No Job' %>
+                        </span><br>
+                        <span>
+                            <%- job ? job.min + ' to ' + job.max + ' ' + job.currency.toTitleCase() : 'No Payment' %>
+                        </span>
+                        <span><br>
+                            <%- user.job.hours %> Hours Worked
+                        </span>
+                </div>
+                <div class="stats">
+                    <% var job=jobs.find(j=> j.title === user.job.title); %>
+                        <span class="title">Stats</span><br>
+                        <span>
+                            <%- user.stats.streak.daily %> Daily Streak
+                        </span><br>
+                        <span>
+                            <%- user.stats.rose.sent %> Roses Sent
+                        </span>
+                        <span><br>
+                            <%- user.stats.rose.received %> Roses Received
+                        </span>
+                </div>
+            </div>
+
+            <span style="color:rgb(48, 48, 48); font-size:0.7rem">
+                <%- target.id %>
+            </span>
+        </section>
+    </main>
+
+    <%- include('../css/user') %>
+        <%- include('./partials/navbar') %>
+</body>
+
+</html>
