@@ -10,7 +10,7 @@ module.exports = class Meme extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        fetch('https://werewolf.apteryx.xyz/api/meme')
+        fetch(client.constants.links.companion.api + '/meme')
             .then(res => res.json())
             .then(body => {
                 if (body.data) message.send(body.data.url);
