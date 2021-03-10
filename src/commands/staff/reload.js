@@ -11,9 +11,8 @@ module.exports = class Reload extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        let commands = client.commandManager.reload(),
-            events = client.eventManager.reload();
+        let { commands, events, locales } = client.reload();
 
-        return message.send(`Reloaded ${commands} commands and ${events} events.`);
+        return message.send(`Reloaded ${commands} commands, ${events} events, and constants.`);
     }
 }
