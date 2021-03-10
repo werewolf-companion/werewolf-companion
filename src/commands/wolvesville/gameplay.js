@@ -13,7 +13,7 @@ module.exports = class Gameplay extends client.commandManager.Command {
         return message.send('**COMING SOON**, join the Wolvesville Companion Discord server to submit your own gameplay screenshots.')
 
         /**
-         * fetch('https://werewolf.apteryx.xyz/api/gameplay')
+         * fetch(client.constants.links.companion.api + '/gameplay')
             .then(res => res.json())
             .then(body => {
                 if (body.data) message.send(body.data.url);
