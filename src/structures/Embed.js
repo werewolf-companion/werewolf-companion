@@ -10,10 +10,10 @@ module.exports = class Embed {
         embed.setColor(colour);
         embed.setTimestamp();
 
-        if (footer && message) embed.setFooter(footer, message.author.displayAvatarURL());
-        else if (!footer && message) embed.setFooter(message.author.tag, message.author.displayAvatarURL());
-        else if (footer && !message) embed.setFooter(footer);
-        else embed.setFooter('Wolvesville Companion');
+        let embedFooter = [];
+        if (footer) embedFooter.push(footer);
+        if (message) embedFooter.push(message.author.id);
+        embed.setFooter(embedFooter.join(' • '));
 
         for (let i = 0; i < fields.length; i++) {
             let field = fields[i];
