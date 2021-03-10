@@ -27,7 +27,7 @@ passport.deserializeUser((object, done) => done(null, object));
 passport.use(new Strategy({
     clientID: process.env.DISCORD_ID,
     clientSecret: process.env.DISCORD_SECRET,
-    callbackURL: 'https://werewolf.apteryx.xyz/auth/discord/callback',
+    callbackURL: client.constants.links.companion.site + '/auth/discord/callback',
     scope: ['identify']
 }, (accessToken, refreshToken, profile, done) => process.nextTick(() => done(null, profile))));
 
