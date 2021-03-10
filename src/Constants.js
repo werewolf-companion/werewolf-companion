@@ -7,13 +7,24 @@ exports.staff = [
     module.exports.developer,
     {
         id: '584311318207660042', // zoie
-        level: 4
+        level: 4 // admin
     },
     {
         id: '699869076368916511', // wixen
-        level: 3
+        level: 3 // moderator
     }
 ]
+
+exports.events = {
+    work: {
+        gold: 1,
+        rose: 1
+    },
+    daily: {
+        gold: 1,
+        rose: 1
+    }
+}
 
 exports.links = {
     companion: {
@@ -33,6 +44,12 @@ exports.api = {
 exports.ids = {
     guilds: {
         support: '454178517802942464'
+    },
+    channels: {
+        events: '761957676480593930'
+    },
+    roles: {
+        events: '707440620683132969'
     }
 }
 
