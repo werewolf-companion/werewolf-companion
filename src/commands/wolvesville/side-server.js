@@ -1,6 +1,6 @@
 const Fuse = require('fuse.js');
 
-module.exports = class Role extends client.commandManager.Command {
+module.exports = class SideServer extends client.commandManager.Command {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

@@ -2,7 +2,7 @@ const EVENTS = ['work'],
     Discord = require('discord.js'),
     ms = require('../../../../../modules/enhanced-ms/src/index');
 
-module.exports = class Eval extends client.commandManager.Command {
+module.exports = class Event extends client.commandManager.Command {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -12,7 +12,6 @@ module.exports = class Eval extends client.commandManager.Command {
         })
     }
 
-    // *event work 2 
     async run({ message, args, guild, user }) {
         let event = EVENTS.find(e => e === args[0]?.toLowerCase())
         if (!event) return message.send('No event type was found for what was inputted. Event types include ' + EVENTS.join(', '));

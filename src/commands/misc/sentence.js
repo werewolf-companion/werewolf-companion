@@ -1,6 +1,6 @@
 const txtgen = require('txtgen');
 
-module.exports = class Eval extends client.commandManager.Command {
+module.exports = class Sentence extends client.commandManager.Command {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
