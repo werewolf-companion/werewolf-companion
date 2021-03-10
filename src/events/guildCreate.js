@@ -6,6 +6,7 @@ module.exports = class GuildCreate extends client.eventManager.Event {
     }
 
     async handle(guild) {
+        /*
         await database.create.guild(guild);
         
         if (guild.memberCount < 10000) {
@@ -18,5 +19,6 @@ module.exports = class GuildCreate extends client.eventManager.Event {
                     await database.create.user(user);
             }
         }
+        */
     }
 }
