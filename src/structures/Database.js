@@ -26,7 +26,7 @@ module.exports = class Database {
         console.log('Database tables have been initialized.');
     }
 
-    get(value, kind = 'user') {
+    get(value, kind = 'user', object) {
         if (!value || typeof value !== 'string') return undefined;
         if (value.match(/<@!?(\d{17,19})>/)) value = value.replace(/[<@!>]/g, '');
         if (value.match(/^((.{2,32})#\d{4})/)) value = this.users.find(u => u.username.toLowerCase() === value.split('#')[0].toLowerCase());
@@ -40,7 +40,9 @@ module.exports = class Database {
             g.id === value ||
             g.name?.toLowerCase() === value);
 
-        if (!result || !result.kind) return undefined;
+        
+        if ((!result || !result.kind) && !object) return null;
+        else if ((!result || !result.kind) && object instanceof Discord.User) return this.create[kind](object);
         else if (result.kind === 'user') return new this.User(result);
         else if (result.kind === 'guild') return new this.Guild(result);
         else return null;
@@ -52,7 +54,7 @@ module.exports = class Database {
         let result = this.find(key);
         if (result) {
             this.users.delete(result.id);
-            this.guild.delete(result.id);
+            this.guilds.delete(result.id);
             return true;
         } else return false;
     }
