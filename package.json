@@ -8,7 +8,7 @@
     "license": "AGPLv3",
     "dependencies": {
         "body-parser": "^1.19.0",
-        "canvas": "^2.6.1",
+        "canvas": "^2.7.0",
         "cookie-parser": "^1.4.5",
         "day-log-savings": "^1.0.4",
         "discord.js": "github:discordjs/discord.js",
@@ -16,7 +16,7 @@
         "ejs": "^3.1.5",
         "enmap": "^5.8.2",
         "express": "^4.17.1",
-        "express-rate-limit": "^5.2.3",
+        "express-rate-limit": "^5.2.6",
         "express-session": "^1.17.1",
         "fuse.js": "^6.4.6",
         "moment": "^2.29.1",
@@ -27,12 +27,12 @@
         "passport-discord": "^0.1.4",
         "pretty-ms": "^7.0.1",
         "random-words": "^1.1.1",
-        "root-66": "^0.0.1",
+        "root-66": "^0.0.2",
         "rpi-proc-info": "^1.0.0",
         "txtgen": "^2.2.8",
         "weighted-random": "^0.1.0"
     },
     "devDependencies": {
-        "mocha": "^7.2.0"
+        "mocha": "^8.3.1"
     }
 }
