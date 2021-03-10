@@ -1,49 +1,43 @@
-const Embed = require('./structures/Embed');
-
 exports.developer = {
     id: '394469731085844502',
     level: 5
 }
 
-exports.partnershipEmbed = new Embed({ title: '<:WerewolfCompanion:809419031215734804> Wolvesville Companion', description: 'Wolvesville Companion is an Android (iOS soon) app and Discord bot made for the players of Wolvesville, by the players. It contains helpful features such as game information, role information, tips & tricks (submitted by players) media links and more. The Discord bot also comes with a few \'fun\' features including an economy system.', footer: 'Developed by Apteryx, https://apteryx.xyz/' }, [
-    ['🅱️ Server', 'https://werewolf.apteryx.xyz/server/invite\nThe Wolvesville Companion support server, here you can get help with the app or bot, report any bugs you may encounter, leave suggestions or simply chat with other players.', false],
-    ['🤖 Bot', 'https://werewolf.apteryx.xyz/bot/invite\nThe Wolvesville Companion bot has many features available to you, like:\n<:werewolf:705737242962034698> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413282230173716> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:funny:809417014510485524> | **Memes & Gameplay** - A collection full of Wolvesville memes and gameplay screenshots.\nThe bot also has an advanced economy and fun system, containing:\n<:gold:705737242080968815> | **Four Currencies** - Earn and buy things with Gold, Roses, Gems, and Loyalty Tokens.\n<:Zombie:709005269425979392> | **Collectables** - Collect all the Wolvesville roles in your own collection.\nand many more!', false],
-    ['📱 App', '<:android:809421546002317352> | https://werewolf.apteryx.xyz/app/android\n<:apple:809421649194778675> | Soon\nThe Wolvesville Companion mobile app can be downloaded for free from the Google Play store (iOS version soon), it has plenty of features including:\n🎉 | **Announcements & Giveaways** - a section made for official Wolvesville announcements and Wolvesville related giveaways.\n<:SectLeader:709003789499236392> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413772690456586> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:Freeman:809415014401310740> | **Free Items** - Information on free items and how to get them in Wolvesville.\nand many more!\nJoin the support server for updates on the iOS version.', false]
-])
-
-exports.ids = {
-    guilds: {
-        support: '454178517802942464'
-    },
-    channels: {
-        partnerships: '689462219691262032',
-        requests: '809440714483957880'
-    },
-    users: {
-
-    }
-}
-
-exports.pink = [251, 69, 132];
-
 exports.staff = [
     module.exports.developer,
     {
-        id: '584311318207660042',
+        id: '584311318207660042', // zoie
         level: 4
     },
     {
-        id: '699869076368916511',
+        id: '699869076368916511', // wixen
         level: 3
     }
 ]
 
-exports.links = [
-    { title: 'Website', value: `Website for Wolvesville Companion. Providing more information about the bot, app and API.\n[**VISIT**](${process.env.WEBSITE_DOMAIN})` },
-    { title: 'Server', value: `Invite link for the Discord support server, join if you need help or just want to chat with other users.\n[**JOIN**](${process.env.WEBSITE_DOMAIN}/discord/invite)` },
-    { title: 'App', value: `Android app version of the Wolvesville Companion app, even containing features which this bot does not have. iOS version is planned.\n[**DOWNLOAD**](${process.env.WEBSITE_DOMAIN}/app/android)` },
-    { title: 'Bot', value: `Invite link for the Discord bot, which you can iuse to add this bot to your own server.\n[**INVITE**](${process.env.WEBSITE_DOMAIN}/bot/invite)` }
-]
+exports.links = {
+    companion: {
+        site: 'https://wolvesville.apteryx.xyz',
+        api: 'https://wolvesville.apteryx.xyz/api',
+        bot: 'https://wolvesville.apteryx.xyz/bot/invite',
+        server: 'https://wolvesville.apteryx.xyz/discord/invite',
+        app: 'https://wolvesville.apteryx.xyz/app/android'
+    }
+}
+
+exports.api = {
+    define: word => 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word,
+    urban: word => 'http://api.urbandictionary.com/v0/define?term=' + word
+}
+
+exports.ids = {
+    guilds: {
+        support: '454178517802942464'
+    }
+}
+
+exports.pink = [251, 69, 132];
+exports.permissions = 1812458561;
 
 exports.emotes = {
     true: '803931910639321098',
@@ -129,4 +123,10 @@ exports.emotes = {
     }
 }
 
-exports.permissions = 1812458561;
+/**
+exports.partnershipEmbed = new Embed({ title: '<:WerewolfCompanion:809419031215734804> Wolvesville Companion', description: 'Wolvesville Companion is an Android (iOS soon) app and Discord bot made for the players of Wolvesville, by the players. It contains helpful features such as game information, role information, tips & tricks (submitted by players) media links and more. The Discord bot also comes with a few \'fun\' features including an economy system.', footer: 'Developed by Apteryx, https://apteryx.xyz/' }, [
+    ['🅱️ Server', 'https://werewolf.apteryx.xyz/server/invite\nThe Wolvesville Companion support server, here you can get help with the app or bot, report any bugs you may encounter, leave suggestions or simply chat with other players.', false],
+    ['🤖 Bot', 'https://werewolf.apteryx.xyz/bot/invite\nThe Wolvesville Companion bot has many features available to you, like:\n<:werewolf:705737242962034698> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413282230173716> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:funny:809417014510485524> | **Memes & Gameplay** - A collection full of Wolvesville memes and gameplay screenshots.\nThe bot also has an advanced economy and fun system, containing:\n<:gold:705737242080968815> | **Four Currencies** - Earn and buy things with Gold, Roses, Gems, and Loyalty Tokens.\n<:Zombie:709005269425979392> | **Collectables** - Collect all the Wolvesville roles in your own collection.\nand many more!', false],
+    ['📱 App', '<:android:809421546002317352> | https://werewolf.apteryx.xyz/app/android\n<:apple:809421649194778675> | Soon\nThe Wolvesville Companion mobile app can be downloaded for free from the Google Play store (iOS version soon), it has plenty of features including:\n🎉 | **Announcements & Giveaways** - a section made for official Wolvesville announcements and Wolvesville related giveaways.\n<:SectLeader:709003789499236392> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413772690456586> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:Freeman:809415014401310740> | **Free Items** - Information on free items and how to get them in Wolvesville.\nand many more!\nJoin the support server for updates on the iOS version.', false]
+])
+*/
