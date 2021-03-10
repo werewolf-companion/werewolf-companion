@@ -9,12 +9,18 @@ module.exports = class Message extends client.eventManager.Event {
         if (message.partial) await message.fetch();
 
         if (message.type !== 'DEFAULT' || message.author.bot ||
-            !message.client.ready || !message.channel.viewable) return;
+            !client.ready || !message.channel.viewable) return;
 
         let guild = database.get(message.guild.id, 'guild') ||
             database.create.guild(message.guild),
             user = database.get(message.author.id, 'user') ||
                 database.create.user(message.author);
+
+        if (user.tag !== message.author.tag) {
+            let { username, discriminator } = message.author;
+            user = Object.merge(user, { username, discriminator });
+            database.users.set(user.id, user);
+        }
 
         let prefix = guild.settings.prefix,
             mentionPrefix = message.content.match(new RegExp(`^<@!?${client.user.id}> ?`));
