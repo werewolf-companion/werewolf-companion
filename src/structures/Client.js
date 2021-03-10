@@ -3,7 +3,8 @@ const Discord = require('discord.js'),
     EventManager = require('../managers/EventManager'),
     LocaleManager = require('../managers/LocaleManager'),
     Constants = require('../Constants'),
-    { exec } = require('child_process');
+    { exec } = require('child_process'),
+    path = require('path');
 
 module.exports = class Client extends Discord.Client {
     constructor(clientOptions) {
@@ -12,9 +13,12 @@ module.exports = class Client extends Discord.Client {
         this.ready = false;
         this.constants = Constants;
         this.prefix = '*';
+
         this.eventManager = new EventManager(this);
         this.commandManager = new CommandManager(this);
         this.localeManager = new LocaleManager(this);
+
+        delete require.cache[path.resolve('../Constants')];
     }
 
     async initialize() {
@@ -44,6 +48,16 @@ module.exports = class Client extends Discord.Client {
         this.eventManager.unregister();
         this.destroy();
         exec(`pm2 stop ${process.env.PM_ID}`);
+    }
+
+    reload() {
+        let commands = this.commandManager.reload(),
+            events = this.eventManager.reload(),
+            locales = this.localeManager.reload();
+        //this.constants = require('../Constants');
+
+        //delete require.cache[path.resolve('../Constants')];
+        return { commands, events, locales };
     }
 
     get logs() {
