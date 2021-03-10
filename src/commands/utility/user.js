@@ -14,6 +14,6 @@ module.exports = class User extends client.commandManager.Command {
             user = target;
         }
 
-        return message.send(`Find ${message.author.id !== user.id ? `${user.tag}'s` : 'your'} user information here: **COMING SOON**`);
+        return message.send(`Find ${message.author.id !== user.id ? `${user.tag}'s` : 'your'} user information here: ${client.constants.links.companion.site}/user/${user.id}`);
     }
 }
