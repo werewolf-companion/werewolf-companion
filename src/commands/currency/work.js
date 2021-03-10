@@ -37,7 +37,7 @@ module.exports = class Work extends client.commandManager.Command {
 
     finishJob(message, user, max, min, currency, success) {
         let payment = Math.floor(Math.random() * (max - min) + min);
-        payment = (payment > 0 ? payment : 1) * client.constants.events.work.gold;
+        payment = Math.floor((payment > 0 ? payment : 1) * client.constants.events.work.gold);
         database.users.set(user.id, Object.merge(user, { job: { hours: ++user.job.hours }, balance: { [currency]: user.balance[currency] + payment } }));
         terminal.currency(`${user.tag} (${user.id}) worked and earned ${payment} ${currency}.`);
 
