@@ -15,6 +15,6 @@ module.exports = class Logs extends client.commandManager.Command {
             path = args[1] || moment().format('YYYY/MM/DD'),
             logs = terminal.read({ path, lines });
 
-        return message.send({ message, title: `${path} Logs`, description: `Date: ${moment().format('YYYY/MM/DD')} Time: ${moment().format('HH:mm:ss')}` + '```css\n' + logs + '```' })
+        return message.send({ message, title: `${path} Logs`, description: `Date: ${moment().format('YYYY/MM/DD')} Time: ${moment().format('HH:mm:ss')}` + '```css\n' + logs.slice(logs.length - 1000, logs.length) + '```' })
     }
 }
