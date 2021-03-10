@@ -101,7 +101,8 @@ module.exports = class Message extends client.eventManager.Event {
             } catch (error) {
                 if (error.message.includes('does not exist in the enmap "users"')) return;
                 message.send(`An error occurred while trying to execute the ${command.name} command. The error has been logged and will be sorted ASAP.\nError: ${error.message}`);
-                return terminal.error(error);
+                let errorStack = error.stack.toString().split('\n');
+                return terminal.error(errorStack[0] + '\n' + errorStack[1]);
             }
         }
     }
