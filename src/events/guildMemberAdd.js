@@ -4,7 +4,9 @@ module.exports = class GuildMemberAdd extends client.eventManager.Event {
     }
 
     async handle(member) {
+        /*
         let user = member.user;
         if (!user.bot) database.create.user(user);
+        */
     }
 }
