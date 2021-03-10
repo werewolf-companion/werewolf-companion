@@ -15,10 +15,13 @@ module.exports = class BotInfo extends client.commandManager.Command {
     async run({ message }) {
         let info = rpi.info,
             developer = database.get(client.constants.developer.id, 'user'),
-            mods = [];
+            mods = [],
+            guildCount = client.guilds.cache.size,
+            userCount = 0;
 
-        for (let admin of client.constants.staff.filter(s => s.level > 2).slice(1)) mods.push(`<@!${admin.id}>`)
-        
+        for (let admin of client.constants.staff.filter(s => s.level > 2).slice(1)) mods.push(`<@!${admin.id}>`);
+        for (let guild of client.guilds.cache.array()) userCount += guild.memberCount;
+
 
         let { temperature, memory, disk } = {
             temperature: {
@@ -46,10 +49,10 @@ module.exports = class BotInfo extends client.commandManager.Command {
             ['RPi Disk Space', `${disk.total} GB Total\n${disk.used} GB Used\n${disk.free} GB Free`],
             ['RPi Memory', `${memory.total} GB Total\n${memory.free} GB Free\n${memory.available} GB Available`],
             ['RPi Temperature', `CPU ${temperature.cpu}°C`],
-            ['Guild Count', database.guilds.size],
-            ['User Count', database.users.size],
+            ['Guild Count', guildCount],
+            ['User Count', userCount],
             ['Command Count', client.commandManager.commands.length],
-            ['Dependencies', Object.entries(pkg.dependencies).map(d => `**${d[0]}** (v${d[1].slice(1)})`).join(', '), false]
+            ['Dependencies', Object.entries(pkg.dependencies).map(d => `**${d[0]}** (${d[1].replace('^', 'v')})`).join(', '), false]
         ])
     }
 }
