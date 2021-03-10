@@ -11,7 +11,7 @@ module.exports = class Logs extends client.commandManager.Command {
     }
 
     async run({ message, args }) {
-        let lines = +args[0],
+        let lines = +args[0] || 50,
             path = args[1] || moment().format('YYYY/MM/DD'),
             logs = terminal.read({ path, lines });
 
