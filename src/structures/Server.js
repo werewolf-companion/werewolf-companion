@@ -36,6 +36,7 @@ module.exports = class Server {
         }))
 
         const { render } = require('../routes/fn');
+        require('../routes/site/app').init(app);
         require('../routes/site/auth').init(app);
         require('../routes/site/home').init(app);
         require('../routes/site/user').init(app);
