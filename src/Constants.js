@@ -33,6 +33,14 @@ exports.links = {
         bot: 'https://wolvesville.apteryx.xyz/bot/invite',
         server: 'https://wolvesville.apteryx.xyz/discord/invite',
         app: 'https://wolvesville.apteryx.xyz/app/android'
+    },
+
+    wolvesville: {
+        discord: 'https://discord.gg/wolvesville',
+        subreddit: 'https://reddit.com/r/wolvesville',
+        instagram: 'https://instagram.com/werewolf.online',
+        twitter: 'https://twitter.com/werewolf_app',
+        facebook: 'https://facebook.com/werewolf.apps'
     }
 }
 
