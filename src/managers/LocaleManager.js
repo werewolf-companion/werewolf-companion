@@ -3,10 +3,9 @@ const { resolve } = require('path'),
     Manager = require('./Manager');
 
 module.exports = class LocaleManager extends Manager {
-    constructor(client) {
-        super(client);
-        this.client = client;
-
+    constructor() {
+        super();
+        
         this.locales = [];
         this.localeDirectory = resolve(this.srcDirectory, 'locales');
         this.defaultLocale = 'en-gb';

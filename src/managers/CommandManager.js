@@ -4,9 +4,8 @@ const { resolve } = require('path'),
     Command = require('../structures/Command');
 
 module.exports = class CommandManager extends Manager {
-    constructor(client) {
-        super(client);
-        this.client = client;
+    constructor() {
+        super();
         this.Command = Command;
 
         this.commands = [];

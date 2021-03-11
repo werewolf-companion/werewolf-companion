@@ -4,9 +4,8 @@ const { resolve } = require('path'),
     Event = require('../structures/Event');
 
 module.exports = class EventManager extends Manager {
-    constructor(client) {
-        super(client);
-        this.client = client;
+    constructor() {
+        super();
         this.Event = Event;
 
         this.events = [];
@@ -27,14 +26,14 @@ module.exports = class EventManager extends Manager {
 
             this.events.push(event);
             delete require.cache[eventPath];
-            this.client.on(event.name, event.handle.bind({ client: this.client, name: event.name }));
+            client.on(event.name, event.handle.bind({ client: client, name: event.name }));
             i++;
         }
         return i;
     }
 
     unregister() {
-        this.client.removeAllListeners();
+        client.removeAllListeners();
         while (this.events.length) this.events.pop();
     }
 
