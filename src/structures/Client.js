@@ -2,6 +2,8 @@ const Discord = require('discord.js'),
     CommandManager = require('../managers/CommandManager'),
     EventManager = require('../managers/EventManager'),
     LocaleManager = require('../managers/LocaleManager'),
+    TopGGManager = require('../managers/TopGGManager'),
+
     Constants = require('../Constants'),
     { exec } = require('child_process'),
     path = require('path');
@@ -17,6 +19,7 @@ module.exports = class Client extends Discord.Client {
         this.eventManager = new EventManager(this);
         this.commandManager = new CommandManager(this);
         this.localeManager = new LocaleManager(this);
+        this.topGGManager = new TopGGManager(this);
 
         delete require.cache[path.resolve('../Constants')];
     }
@@ -30,6 +33,8 @@ module.exports = class Client extends Discord.Client {
         this.eventManager.register();
         this.commandManager.register();
         this.localeManager.register();
+        this.topGGManager.register();
+
         await this.login(process.env.DISCORD_TOKEN);
         this.ready = true;
         console.log('Discord client has been initialized.');
