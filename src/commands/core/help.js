@@ -8,7 +8,7 @@ module.exports = class Help extends client.commandManager.Command {
     }
 
     async run({ message, args, user }) {
-        return message.send({ message, title: 'Werewolves Companion Help' }, [
+        return message.send({ message, title: 'Wolvesville Companion Help' }, [
             ['About', `Wolvesville Companion is an Android (iOS soon) app and Discord bot made for the players of Wolvesville, by the players. It contains helpful features such as game information, role information, tips & tricks (submitted by players) media links and more. The Discord bot also comes with a few 'fun' features including an economy system.`, false],
             ['Commands', `I have close to 40 commands you can use, to view a list use \`${message.prefix}commands\`.`, false],
             ['Reactions', `Sometimes I will response with a reaction rather than a message, here is what those reactions mean:\n${message.emote('clock')} : This command is on cooldown, slow down.\n${message.emote('missing')} : Missing required inputs.\n${message.emote('forbidden')} : Forbidden, you cannot use this.`, false],

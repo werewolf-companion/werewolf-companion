@@ -29,7 +29,7 @@ module.exports = class Daily extends client.commandManager.Command {
         terminal.currency(`${user.tag} (${user.id}) claimed their daily reward of ${reward.amount} ${reward.item}, they now have ${user.balance[reward.item] + reward.amount}.`);
 
         return message.send({
-            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Werewolves Companion on top.gg by clicking [here](${client.topGGManager.voteLink}!`)}`
+            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Wolvesville Companion on top.gg by clicking [here](${client.topGGManager.voteLink}!`)}`
         })
     }
 
