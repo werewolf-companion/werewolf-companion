@@ -6,9 +6,9 @@ const { resolve } = require('path'),
 module.exports = class EventManager extends Manager {
     constructor() {
         super();
-        this.Event = Event;
+        this.class = Event;
 
-        this.events = [];
+        this._ = [];
         this.eventDirectory = resolve(this.srcDirectory, 'events');
     }
 
@@ -24,7 +24,7 @@ module.exports = class EventManager extends Manager {
                 event = new Event(eventPath);
             } catch (error) { continue };
 
-            this.events.push(event);
+            this._.push(event);
             delete require.cache[eventPath];
             client.on(event.name, event.handle.bind({ client: client, name: event.name }));
             i++;
@@ -34,7 +34,7 @@ module.exports = class EventManager extends Manager {
 
     unregister() {
         client.removeAllListeners();
-        while (this.events.length) this.events.pop();
+        while (this._.length) this._.pop();
     }
 
     reload() {

@@ -2,7 +2,7 @@ const LIST = require('../../json/jobs.json'),
     txtgen = require('random-words'),
     ms = require('pretty-ms');
 
-module.exports = class Work extends client.commandManager.Command {
+module.exports = class Work extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

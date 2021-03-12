@@ -1,6 +1,6 @@
 const ms = require('pretty-ms');
 
-module.exports = class Message extends client.eventManager.Event {
+module.exports = class Message extends client.events.class {
     constructor() {
         super(__filename.split('/').pop().slice(0, -3));
     }
@@ -34,7 +34,7 @@ module.exports = class Message extends client.eventManager.Event {
                 content[0].slice(prefix.length).toLowerCase(),
             args = content.slice(mentionPrefix ? 2 : 1);
 
-        let command = client.commandManager.search(query);
+        let command = client.commands.search(query);
         try {
             if (!command) return guild.settings.errors.invalidCommand ?
                 message.send(`Invalid command, use \`${prefix}commands\` to view a list of valid commands.`) :

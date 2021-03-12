@@ -1,12 +1,13 @@
 {
     "name": "wolvesville-companion",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "description": "",
     "main": "src/index.js",
     "keywords": [],
     "author": "Apteryx",
     "license": "AGPLv3",
     "dependencies": {
+        "@top-gg/sdk": "^3.0.9",
         "body-parser": "^1.19.0",
         "canvas": "^2.7.0",
         "cookie-parser": "^1.4.5",

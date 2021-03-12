@@ -1,7 +1,7 @@
 const { promisify, inspect } = require('util'),
     exec = promisify(require('child_process').exec);
 
-module.exports = class Restart extends client.commandManager.Command {
+module.exports = class Restart extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

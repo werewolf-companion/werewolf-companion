@@ -5,7 +5,7 @@ const h = {
     }
 }
 
-module.exports = class H extends client.commandManager.Command {
+module.exports = class H extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

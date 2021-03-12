@@ -1,7 +1,7 @@
 const random = require('weighted-random'),
     ms = require('pretty-ms');
 
-module.exports = class Daily extends client.commandManager.Command {
+module.exports = class Daily extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -14,7 +14,7 @@ module.exports = class Daily extends client.commandManager.Command {
     async run({ message, user }) {
         let lastDaily = user.cooldowns.daily,
             twoDays = 86400000 * 2,
-            hasVoted = client.topGGManager.hasVoted(user.id),
+            hasVoted = client.topgg.hasVoted(user.id),
             streak = user.stats.streak.daily;
 
         if (Date.now() - lastDaily > twoDays) streak = 1;
@@ -29,7 +29,7 @@ module.exports = class Daily extends client.commandManager.Command {
         terminal.currency(`${user.tag} (${user.id}) claimed their daily reward of ${reward.amount} ${reward.item}, they now have ${user.balance[reward.item] + reward.amount}.`);
 
         return message.send({
-            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Wolvesville Companion on top.gg by clicking [here](${client.topGGManager.voteLink}!`)}`
+            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Wolvesville Companion on top.gg by clicking [here](${client.topgg.voteLink}!`)}`
         })
     }
 

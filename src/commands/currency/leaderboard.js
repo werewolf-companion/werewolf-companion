@@ -1,7 +1,7 @@
 /**
  * const Embed = require('../../structures/Embed');
 
-module.exports = class Leaderboard extends client.commandManager.Command {
+module.exports = class Leaderboard extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

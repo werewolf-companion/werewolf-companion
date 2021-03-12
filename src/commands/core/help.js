@@ -1,4 +1,4 @@
-module.exports = class Help extends client.commandManager.Command {
+module.exports = class Help extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

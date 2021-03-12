@@ -1,4 +1,4 @@
-module.exports = class Links extends client.commandManager.Command {
+module.exports = class Links extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -10,7 +10,7 @@ module.exports = class Links extends client.commandManager.Command {
 
     async run({ message }) {
         let companionLinks = client.constants.links.companion,
-            { link, voteLink } = client.topGGManager,
+            { link, voteLink } = client.topgg,
             links = [
                 { title: 'Website', value: `Website for Wolvesville Companion. Providing more information about the bot, app and API.\n[**VISIT**](${companionLinks.site})` },
                 { title: 'Server', value: `Invite link for the Discord support server, join if you need help or just want to chat with other users.\n[**JOIN**](${companionLinks.server})` },

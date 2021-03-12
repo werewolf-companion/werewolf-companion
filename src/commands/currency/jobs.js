@@ -1,6 +1,6 @@
 const LIST = require('../../json/jobs.json');
 
-module.exports = class Jobs extends client.commandManager.Command {
+module.exports = class Jobs extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

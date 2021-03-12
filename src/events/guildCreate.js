@@ -1,6 +1,6 @@
 const ms = require('pretty-ms');
 
-module.exports = class GuildCreate extends client.eventManager.Event {
+module.exports = class GuildCreate extends client.events.class {
     constructor() {
         super(__filename.split('/').pop().slice(0, -3));
     }

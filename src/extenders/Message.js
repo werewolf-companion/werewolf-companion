@@ -21,7 +21,7 @@ Structures.extend('Message', Message => {
             return this.channel.send(JSON.stringify(parameter1));
         }
 
-        _ = (key, ...args) => this.client.localeManager.translate(
+        _ = (key, ...args) => this.client.locales.translate(
             this.author.settings?.locate || this.guild.settings?.locate,
             key,
             ...args

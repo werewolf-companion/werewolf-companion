@@ -1,4 +1,4 @@
-module.exports = class Settings extends client.commandManager.Command {
+module.exports = class Settings extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -39,7 +39,7 @@ module.exports = class Settings extends client.commandManager.Command {
                 database.guilds.set(guild.id, boolean === 'enable' ? true : false, 'settings.errors.invalidCommand');
                 return message.send(`Sending an invalid command message when a user uses the prefix without a valid command has been ${boolean}d.`);
             } else if (option === 'command') {
-                let command = client.commandManager.search(args[1]?.toLowerCase()),
+                let command = client.commands.search(args[1]?.toLowerCase()),
                     boolean = args[2]?.toLowerCase();
                 if (!command) return message.send('No command was found for what was inputted.');
                 if (['settings'].includes(command.name)) return message.send('This commands status cannot be modified.')

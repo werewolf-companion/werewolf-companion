@@ -1,7 +1,7 @@
 const fetch = require('node-fetch'),
     Embed = require('../../structures/Embed');
 
-module.exports = class Define extends client.commandManager.Command {
+module.exports = class Define extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

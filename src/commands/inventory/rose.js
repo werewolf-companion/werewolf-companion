@@ -1,6 +1,6 @@
 const shop = require('../../json/shop.json');
 
-module.exports = class Rose extends client.commandManager.Command {
+module.exports = class Rose extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

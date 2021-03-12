@@ -2,7 +2,7 @@ const moment = require('moment'),
     { promisify, inspect } = require('util'),
     exec = promisify(require('child_process').exec);
 
-module.exports = class Exec extends client.commandManager.Command {
+module.exports = class Exec extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

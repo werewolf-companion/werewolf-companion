@@ -16,10 +16,10 @@ module.exports = class Client extends Discord.Client {
         this.constants = Constants;
         this.prefix = '*';
 
-        this.eventManager = new EventManager(this);
-        this.commandManager = new CommandManager(this);
-        this.localeManager = new LocaleManager(this);
-        this.topGGManager = new TopGGManager(this);
+        this.events = new EventManager(this);
+        this.commands = new CommandManager(this);
+        this.locales = new LocaleManager(this);
+        this.topGG = new TopGGManager(this);
 
         delete require.cache[path.resolve('../Constants')];
     }
@@ -30,10 +30,9 @@ module.exports = class Client extends Discord.Client {
         require('../extenders/TextChannel');
         require('../extenders/User');
 
-        this.eventManager.register();
-        this.commandManager.register();
-        this.localeManager.register();
-        this.topGGManager.register();
+        this.events.register();
+        this.commands.register();
+        this.locales.register();
 
         await this.login(process.env.DISCORD_TOKEN);
         this.ready = true;
@@ -49,16 +48,16 @@ module.exports = class Client extends Discord.Client {
     }
 
     shutdown() {
-        this.commandManager.unregister();
-        this.eventManager.unregister();
+        this.commands.unregister();
+        this.events.unregister();
         this.destroy();
         exec(`pm2 stop ${process.env.PM_ID}`);
     }
 
     reload() {
-        let commands = this.commandManager.reload(),
-            events = this.eventManager.reload(),
-            locales = this.localeManager.reload();
+        let commands = this.commands.reload(),
+            events = this.events.reload(),
+            locales = this.locales.reload();
         //this.constants = require('../Constants');
 
         //delete require.cache[path.resolve('../Constants')];

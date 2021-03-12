@@ -6,9 +6,9 @@ const { resolve } = require('path'),
 module.exports = class CommandManager extends Manager {
     constructor() {
         super();
-        this.Command = Command;
+        this.class = Command;
 
-        this.commands = [];
+        this._ = [];
         this.commandDirectory = resolve(this.srcDirectory, 'commands');
         this.categories = readdirSync(this.commandDirectory);
     }
@@ -27,7 +27,7 @@ module.exports = class CommandManager extends Manager {
                     command = new Command(commandPath);
                 } catch (error) { continue };
 
-                this.commands.push(command);
+                this._.push(command);
                 delete require.cache[commandPath];
                 i++;
             }
@@ -36,7 +36,7 @@ module.exports = class CommandManager extends Manager {
     }
 
     unregister() {
-        while (this.commands.length) this.commands.pop();
+        while (this._.length) this._.pop();
     }
 
     reload() {
@@ -46,6 +46,6 @@ module.exports = class CommandManager extends Manager {
 
     search(query) {
         query = query?.toLowerCase();
-        return this.commands.find(c => c.name === query || c.aliases.includes(query));
+        return this._.find(c => c.name === query || c.aliases.includes(query));
     }
 }

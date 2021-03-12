@@ -1,4 +1,4 @@
-module.exports = class Commands extends client.commandManager.Command {
+module.exports = class Commands extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -9,7 +9,7 @@ module.exports = class Commands extends client.commandManager.Command {
     }
 
     async run({ message, args, user, guild }) {
-        let commands = client.commandManager.commands,
+        let commands = client.commands._,
             categories = {},
             fields = [];
 

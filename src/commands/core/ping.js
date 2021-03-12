@@ -1,4 +1,4 @@
-module.exports = class Ping extends client.commandManager.Command {
+module.exports = class Ping extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

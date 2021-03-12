@@ -12,7 +12,7 @@ const VARIBALES = [
     { name: 'rose', category: 'item', database: 'users', path: 'inventory.i1' }
 ]
 
-module.exports = class Edit extends client.commandManager.Command {
+module.exports = class Edit extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

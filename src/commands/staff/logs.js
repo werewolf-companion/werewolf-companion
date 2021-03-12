@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-module.exports = class Logs extends client.commandManager.Command {
+module.exports = class Logs extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

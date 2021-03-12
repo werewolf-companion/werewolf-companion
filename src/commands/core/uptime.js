@@ -1,6 +1,6 @@
 const ms = require('pretty-ms');
 
-module.exports = class Uptime extends client.commandManager.Command {
+module.exports = class Uptime extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

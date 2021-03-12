@@ -2,7 +2,7 @@ const fs = require('fs'),
     rpi = require('rpi-proc-info'),
     pkg = require('../../../package.json');
 
-module.exports = class BotInfo extends client.commandManager.Command {
+module.exports = class BotInfo extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
@@ -51,7 +51,7 @@ module.exports = class BotInfo extends client.commandManager.Command {
             ['RPi Temperature', `CPU ${temperature.cpu}°C`],
             ['Guild Count', guildCount],
             ['User Count', userCount],
-            ['Command Count', client.commandManager.commands.length],
+            ['Command Count', client.commands._.length],
             ['Dependencies', Object.entries(pkg.dependencies).map(d => `**${d[0]}** (${d[1].replace('^', 'v')})`).join(', '), false]
         ])
     }

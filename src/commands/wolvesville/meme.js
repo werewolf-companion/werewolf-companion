@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-module.exports = class Meme extends client.commandManager.Command {
+module.exports = class Meme extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

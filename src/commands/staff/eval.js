@@ -2,7 +2,7 @@ const Command = require('../../structures/Command'),
     moment = require('moment'),
     ms = require('pretty-ms');
 
-module.exports = class Eval extends client.commandManager.Command {
+module.exports = class Eval extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

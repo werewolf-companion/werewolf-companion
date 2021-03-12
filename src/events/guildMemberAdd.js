@@ -1,4 +1,4 @@
-module.exports = class GuildMemberAdd extends client.eventManager.Event {
+module.exports = class GuildMemberAdd extends client.events.class {
     constructor() {
         super(__filename.split('/').pop().slice(0, -3));
     }

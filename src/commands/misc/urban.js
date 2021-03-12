@@ -1,7 +1,7 @@
 const fetch = require('node-fetch'),
     Embed = require('../../structures/Embed');
 
-module.exports = class Urban extends client.commandManager.Command {
+module.exports = class Urban extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

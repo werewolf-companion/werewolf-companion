@@ -1,7 +1,7 @@
 const Embed = require('../../structures/Embed'),
     ms = require('pretty-ms');
 
-module.exports = class Roles extends client.commandManager.Command {
+module.exports = class Roles extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

@@ -2,7 +2,7 @@ const EVENTS = ['work'],
     Discord = require('discord.js'),
     ms = require('../../../../../modules/enhanced-ms/src/index');
 
-module.exports = class Event extends client.commandManager.Command {
+module.exports = class Event extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),

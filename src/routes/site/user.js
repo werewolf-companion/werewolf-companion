@@ -14,7 +14,7 @@ module.exports = {
             let user = database.get(req.params.id);
             if (!user) return render(req, res, 'error.ejs', { error: { code: 404, message: 'Not Found', details: 'No user found within database.' } });
 
-            let target = await client.users.fetch(req.params.id),
+            let target = await client.users.fetch(user.id),
                 self = req.user ? await client.users.fetch(req.user.id) : null;
 
             render(req, res, 'user.ejs', { self, user, target, jobs });
