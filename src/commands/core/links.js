@@ -2,6 +2,7 @@ module.exports = class Links extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Important Wolvesville Companion links.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS'] },
             aliases: ['invite', 'support', 'server', 'download', 'app', 'android', 'ios', 'topgg', 'vote']

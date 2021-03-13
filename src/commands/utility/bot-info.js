@@ -6,6 +6,7 @@ module.exports = class BotInfo extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Panel containing information about the bot.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS'] },
             aliases: ['bi', 'bot']

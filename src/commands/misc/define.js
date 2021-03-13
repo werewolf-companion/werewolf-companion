@@ -5,8 +5,11 @@ module.exports = class Define extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Find the definition of a word.',
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: 6000
+            cooldown: 6000,
+            usages: ['<word>'],
+            examples: ['definition']
         })
     }
 

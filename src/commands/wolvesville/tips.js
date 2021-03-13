@@ -5,11 +5,11 @@ module.exports = class Tips extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Interactive menu, containing a ton of tip and tricks for Wolvesville.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS', 'ADD_REACTIONS', 'MANAGE_MESSAGES'] },
             aliases: ['tricks'],
-            cooldown: 60000,
-            tags: []
+            cooldown: 60000
         })
     }
 

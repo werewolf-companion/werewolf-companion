@@ -3,15 +3,18 @@ module.exports = class Settings extends client.commands.class {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
             category: module.filename.split('/').slice(-2)[0],
+            description: 'Configure how the bot functions within your server. Anything from changing the prefix to disabling commands.',
             permissions: {
                 user: ['MANAGE_GUILD'],
                 channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS']
             },
-            aliases: ['setting', 'config']
+            aliases: ['setting', 'config'],
+            usages: [null, '<setting key> <new value>', 'command <command name> <disable/enable>'],
+            examples: [null, 'prefix ?', 'missing disable', 'command abbreviations disable']
         })
     }
 
-    async run({ message, args, guild, user }) {
+    async run({ message, args, guild }) {
         if (!args[0]) {
             let { prefix, errors, disabledCommands: commands } = guild.settings;
             return message.send({ message, title: 'Wolvesville Companion Settings', description: `To change a setting use \`${prefix}setting <setting key> <new value>\`.\nExamples: \`${prefix}setting prefix ?\`, \`${prefix}setting missing disable\`.\nKey: <setting name> [<setting key>]`}, [

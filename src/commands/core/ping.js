@@ -2,8 +2,8 @@ module.exports = class Ping extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
-            category: module.filename.split('/').slice(-2)[0],
-            aliases: ['p']
+            description: 'View the client, RETST API and WebSocket ping.',
+            category: module.filename.split('/').slice(-2)[0]
         })
     }
 

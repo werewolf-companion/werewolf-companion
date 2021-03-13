@@ -4,8 +4,11 @@ module.exports = class Buy extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Purchase an item from the shop.',
             category: module.filename.split('/').slice(-2)[0],
-            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] }
+            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] },
+            usages: ['<item id> [quanity]'],
+            examples: ['l1', 'i1 3']
         })
     }
 

@@ -4,8 +4,11 @@ module.exports = class Rose extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Send a rose to a friend! If you send some to the bot, it will give you back spendable roses!',
             category: module.filename.split('/').slice(-2)[0],
-            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] }
+            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] },
+            usages: ['<user> [quantity]', '<wolvesville companion> [quantity]'],
+            examples: [null, '394469731085844502', 'Apteryx 3', '@' + client.user.tag + ' 10']
         })
     }
 

@@ -5,8 +5,11 @@ module.exports = class Urban extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Find the definition for a word on the Urban Dictionary.',
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: 6000
+            cooldown: 6000,
+            usages: ['<word>'],
+            examples: ['youtube']
         })
     }
 
@@ -28,8 +31,8 @@ module.exports = class Urban extends client.commands.class {
                                 author = item.author;
 
                             let embed = new Embed({ message, title: word, footer: 'By ' + author }, [
-                                ['Definition', definition, false],
-                                ['Example', example, false],
+                                ['Definition', definition || 'None', false],
+                                ['Example', example || 'None', false],
                                 ['Votes', `:thumbsup: ${upvotes}\n:thumbsdown: ${downvotes}`]
                             ])
 

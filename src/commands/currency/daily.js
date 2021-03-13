@@ -5,9 +5,10 @@ module.exports = class Daily extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Claim your daily reward, come back tomorrow and increase your streak, a higher streak means better rewards!',
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: 85500000,
-            aliases: []
+            permissions: { channel: ['EMBED_LINKS'] },
+            cooldown: 85500000
         })
     }
 

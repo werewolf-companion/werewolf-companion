@@ -4,8 +4,8 @@ module.exports = class Uptime extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
-            category: module.filename.split('/').slice(-2)[0],
-            aliases: ['u', 'up', 'ut']
+            description: 'The amount of time the client has been online.',
+            category: module.filename.split('/').slice(-2)[0]
         })
     }
 

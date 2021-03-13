@@ -2,8 +2,11 @@ module.exports = class User extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'View information about yourself or someone else.',
             category: module.filename.split('/').slice(-2)[0],
-            aliases: ['ui']
+            aliases: ['ui', 'profile'],
+            usages: [null, '<user>'],
+            examples: [null, '394469731085844502', 'Apteryx', '@Apteryx#0001']
         })
     }
 

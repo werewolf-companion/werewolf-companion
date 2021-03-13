@@ -2,9 +2,9 @@ module.exports = class Media extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Important Wolvesville links.',
             category: module.filename.split('/').slice(-2)[0],
-            permissions: { channel: ['EMBED_LINKS'] },
-            aliases: []
+            permissions: { channel: ['EMBED_LINKS'] }
         })
     }
 

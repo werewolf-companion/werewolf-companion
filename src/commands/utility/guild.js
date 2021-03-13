@@ -2,6 +2,7 @@ module.exports = class Guild extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'COMING SOON',
             category: module.filename.split('/').slice(-2)[0],
             aliases: ['gi']
         })

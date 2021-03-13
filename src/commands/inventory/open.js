@@ -20,13 +20,15 @@ const random = require('weighted-random'),
         common: 50
     }
 
-
 module.exports = class Open extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Open a lootbox and see whats inside!',
             category: module.filename.split('/').slice(-2)[0],
-            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] }
+            permissions: { channel: ['USE_EXTERNAL_EMOJIS'] },
+            usages: ['<lootbox>'],
+            examples: ['l1', 'rlb', 'gem lootbox']
         })
     }
 

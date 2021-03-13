@@ -2,6 +2,7 @@ module.exports = class Commands extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'List of all avaiable commands, from all categories.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS'] },
             aliases: ['cmd', 'cmds', 'command']
@@ -20,7 +21,7 @@ module.exports = class Commands extends client.commands.class {
             }
         }
 
-        for (let category of Object.entries(categories)) fields.push([category[0].toTitleCase(), `\`${category[1].join('`, `')}\``]);
-        return message.send({ message, title: 'Wolvesville Companion Commands' }, fields);
+        for (let category of Object.entries(categories)) fields.push([category[0].toTitleCase(), `\`${category[1].join('`, `')}\``, false]);
+        return message.send({ message, title: 'Wolvesville Companion Commands', description: `Use \`${message.prefix}help <command name>\` for more information on a command, such as how to use it.` }, fields);
     }
 }

@@ -4,10 +4,12 @@ module.exports = class Role extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'Find information on a role within Wolvesville.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] },
-            aliases: [],
-            tags: ['args']
+            tags: ['args'],
+            usages: ['<role>'],
+            examples: ['werewolf', 'ww']
         })
     }
 

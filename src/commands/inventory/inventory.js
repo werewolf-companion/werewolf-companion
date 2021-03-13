@@ -4,9 +4,12 @@ module.exports = class Inventory extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'View your own or someone elses item inventory.',
             category: module.filename.split('/').slice(-2)[0],
             aliases: ['inv'],
-            permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] }
+            permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] },
+            usages: [null, '<user>'],
+            examples: [null, '394469731085844502', 'Apteryx', '@Apteryx#0001']
         })
     }
 

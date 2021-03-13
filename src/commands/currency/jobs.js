@@ -4,8 +4,9 @@ module.exports = class Jobs extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'View a list of all the jobs and their requirements.',
             category: module.filename.split('/').slice(-2)[0],
-            aliases: []
+            permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] }
         })
     }
 

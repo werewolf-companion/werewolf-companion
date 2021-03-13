@@ -4,6 +4,7 @@ module.exports = class Shop extends client.commands.class {
     constructor() {
         super({
             name: module.filename.split('/').pop().slice(0, -3),
+            description: 'View all the buyable items from the shop.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] },
             aliases: ['store']
