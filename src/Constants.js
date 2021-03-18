@@ -140,6 +140,8 @@ exports.emotes = {
     gem: '705737279238438953',
     token: '804552593878810656',
 
+    talisman: '821884624069853184',
+
     lootbox: {
         gold: '804548891877441546',
         rose: '804548936517943397',
@@ -147,11 +149,3 @@ exports.emotes = {
         token: '804548959816384553'
     }
 }
-
-/**
-exports.partnershipEmbed = new Embed({ title: '<:WerewolfCompanion:809419031215734804> Wolvesville Companion', description: 'Wolvesville Companion is an Android (iOS soon) app and Discord bot made for the players of Wolvesville, by the players. It contains helpful features such as game information, role information, tips & tricks (submitted by players) media links and more. The Discord bot also comes with a few \'fun\' features including an economy system.', footer: 'Developed by Apteryx, https://apteryx.xyz/' }, [
-    ['🅱️ Server', 'https://werewolf.apteryx.xyz/server/invite\nThe Wolvesville Companion support server, here you can get help with the app or bot, report any bugs you may encounter, leave suggestions or simply chat with other players.', false],
-    ['🤖 Bot', 'https://werewolf.apteryx.xyz/bot/invite\nThe Wolvesville Companion bot has many features available to you, like:\n<:werewolf:705737242962034698> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413282230173716> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:funny:809417014510485524> | **Memes & Gameplay** - A collection full of Wolvesville memes and gameplay screenshots.\nThe bot also has an advanced economy and fun system, containing:\n<:gold:705737242080968815> | **Four Currencies** - Earn and buy things with Gold, Roses, Gems, and Loyalty Tokens.\n<:Zombie:709005269425979392> | **Collectables** - Collect all the Wolvesville roles in your own collection.\nand many more!', false],
-    ['📱 App', '<:android:809421546002317352> | https://werewolf.apteryx.xyz/app/android\n<:apple:809421649194778675> | Soon\nThe Wolvesville Companion mobile app can be downloaded for free from the Google Play store (iOS version soon), it has plenty of features including:\n🎉 | **Announcements & Giveaways** - a section made for official Wolvesville announcements and Wolvesville related giveaways.\n<:SectLeader:709003789499236392> | **Role Information** - Useful information for every role in the game.\n<:TipsFedora:809413772690456586> | **Tips & Tricks** - Community submitted tips & tricks for a majority of the role in game.\n<:Freeman:809415014401310740> | **Free Items** - Information on free items and how to get them in Wolvesville.\nand many more!\nJoin the support server for updates on the iOS version.', false]
-])
-*/
