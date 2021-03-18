@@ -18,7 +18,7 @@ module.exports = class Inventory extends client.commands.class {
         if (!user || user.kind !== 'user') return message.send('No user was found with what was inputted.');
 
         let inventory = user.inventory,
-            products = { item: [], lootbox: [] };
+            products = { item: [], lootbox: [], talisman: [] };
 
         Object.entries(inventory).forEach(([key, value]) => {
             let item = shop.find(i => i.id === key);

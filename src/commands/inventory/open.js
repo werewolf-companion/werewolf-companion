@@ -27,6 +27,7 @@ module.exports = class Open extends client.commands.class {
             description: 'Open a lootbox and see whats inside!',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['USE_EXTERNAL_EMOJIS'] },
+            tags: [],
             usages: ['<lootbox>'],
             examples: ['l1', 'rlb', 'gem lootbox']
         })
@@ -48,13 +49,30 @@ module.exports = class Open extends client.commands.class {
         let inventory = user.inventory;
         if (!inventory[lootbox.id] || inventory[lootbox.id] < 1) return message.send(`You do not have any ${lootbox.name}es to open.`);
 
+        let useRoleTalisman = false,
+            trueId = message.emote('true', { id: true }),
+            falseId = message.emote('false', { id: true });
+
+        if (inventory['t1']) await message.send(`You have ${inventory['t1']} talisman(s), would you like to use one?`)
+            .then(sent => sent.react(trueId) &&
+                sent.react(falseId) &&
+                sent.awaitReactions((r, u) => u.id === user.id, { max: 1, time: 10000, errors: ['time'] }))
+            .then(collected => {
+                let reaction = collected.first();
+
+                if (reaction.emoji.id === trueId) useRoleTalisman = true;
+                else useRoleTalisman = false;
+
+                reaction.message.delete();
+            })
+
         let itemOdds = ODDS.find(o => o.id === lootbox.id),
-            randomItem = itemOdds.odds[random(itemOdds.odds.map(o => o.weight))],
+            randomItem = useRoleTalisman ? { name: 'collectable' } : itemOdds.odds[random(itemOdds.odds.map(o => o.weight))],
             lootboxType = LOOTBOXES.find(lb => lb.id === lootbox.id)[randomItem.name],
             item = Object.assign(randomItem, lootboxType);
 
         if (item.name === 'collectable') {
-            let { collectable } = collection.randomRole(user, item.odds, false);
+            let { collectable } = collection.randomRole(user, item.odds, useRoleTalisman);
             if (!collectable.role) return message.send('I failed to generate a collectable, this is likely due to you having all the collectables you can from this lootbox or I tired more than 25 times to generate a unique collectable. You have been refunded.');
 
             let rarity = collectable.rarity,
@@ -66,7 +84,7 @@ module.exports = class Open extends client.commands.class {
                 collectables[rarity].push(role)
                 database.users.set(user.id, Object.merge(user, {
                     collectables: collectables,
-                    inventory: { [lootbox.id]: inventory[lootbox.id] - 1 }
+                    inventory: { [lootbox.id]: inventory[lootbox.id] - 1, t1: useRoleTalisman ? inventory['t1'] - 1 : inventory['t1'] }
                 }))
                 terminal.inventory(`${user.tag} (${user.id}) opened a ${lootbox.name} and received the ${role} (${rarity}) collectable.`);
                 return message.send(`You opened a ${lootbox.name} and received the ${rarity} ${message.emote(role.toCamelCase())} ${role.toTitleCase()} collectable!`);

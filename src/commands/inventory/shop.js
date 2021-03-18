@@ -12,7 +12,7 @@ module.exports = class Shop extends client.commands.class {
     }
 
     async run({ message, args, user }) {
-        let products = { item: [], lootbox: [] },
+        let products = { item: [], lootbox: [], talisman: [] },
             fields = [];
 
         for (let item of shop)

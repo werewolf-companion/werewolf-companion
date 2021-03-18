@@ -43,5 +43,14 @@
         "currency": "token",
         "price": 1,
         "path": "lootbox.token"
+    },
+    {
+        "name": "role talisman",
+        "description": "",
+        "category": "talisman",
+        "id": "t1",
+        "currency": "gold",
+        "price": 25,
+        "path": "talisman"
     }
 ]
