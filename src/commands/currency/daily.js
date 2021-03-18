@@ -8,7 +8,7 @@ module.exports = class Daily extends client.commands.class {
             description: 'Claim your daily reward, come back tomorrow and increase your streak, a higher streak means better rewards!',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS'] },
-            cooldown: 85500000
+            cooldown: '23h 45m'
         })
     }
 

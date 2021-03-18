@@ -6,7 +6,7 @@ module.exports = class Sentence extends client.commands.class {
             name: module.filename.split('/').pop().slice(0, -3),
             description: 'Generate a random sentence.',
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: 6000
+            cooldown: '5s',
         })
     }
 

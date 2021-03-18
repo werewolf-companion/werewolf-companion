@@ -9,7 +9,7 @@ module.exports = class Work extends client.commands.class {
             description: 'Work and earn gold by doing simple tasks.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] },
-            cooldown: 3600000
+            cooldown: '1h'
         })
     }
 

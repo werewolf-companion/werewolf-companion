@@ -7,7 +7,7 @@ module.exports = class Urban extends client.commands.class {
             name: module.filename.split('/').pop().slice(0, -3),
             description: 'Find the definition for a word on the Urban Dictionary.',
             category: module.filename.split('/').slice(-2)[0],
-            cooldown: 6000,
+            cooldown: '5s',
             usages: ['<word>'],
             examples: ['youtube']
         })

@@ -8,7 +8,7 @@ module.exports = class Roles extends client.commands.class {
             description: 'Interactive menu, containing information on all the roles within Wolvesville.',
             category: module.filename.split('/').slice(-2)[0],
             permissions: { channel: ['EMBED_LINKS', 'USE_EXTERNAL_EMOJIS', 'ADD_REACTIONS', 'MANAGE_MESSAGES'] },
-            cooldown: 60000
+            cooldown: '1m'
         })
     }
 
