@@ -12,15 +12,7 @@ module.exports = class Message extends client.events.class {
             !client.ready || !message.channel.viewable) return;
 
         let guild = database.get(message.guild.id, 'guild') ||
-            database.create.guild(message.guild),
-            user = database.get(message.author.id, 'user') ||
-                database.create.user(message.author);
-
-        if (user.tag !== message.author.tag) {
-            let { username, discriminator } = message.author;
-            user = Object.merge(user, { username, discriminator });
-            database.users.set(user.id, user);
-        }
+            database.create.guild(message.guild);
 
         let prefix = guild.settings.prefix,
             mentionPrefix = message.content.match(new RegExp(`^<@!?${client.user.id}> ?`));
@@ -33,6 +25,20 @@ module.exports = class Message extends client.events.class {
             query = mentionPrefix ? content[1].toLowerCase() :
                 content[0].slice(prefix.length).toLowerCase(),
             args = content.slice(mentionPrefix ? 2 : 1);
+
+        let user = database.get(message.author.id, 'user') ||
+            database.create.user(message.author);
+
+        if (!user) {
+            terminal.error('Error when getting user, returned: ' + user);
+            return message.send(`An error occurred while trying to execute the ${command.name} command. The error has been logged and will be sorted ASAP.`);
+        };
+
+        if (user.tag !== message.author.tag) {
+            let { username, discriminator } = message.author;
+            user = Object.merge(user, { username, discriminator });
+            database.users.set(user.id, user);
+        }
 
         let command = client.commands.search(query);
         try {
@@ -87,7 +93,7 @@ module.exports = class Message extends client.events.class {
         if (tags.length > 0) {
             if (tags.includes('apteryx') && message.author.id !== client.constants.developer.id) return message.reactForbidden();
             if (tags.includes('args') && args.length < 1) return message.reactNoArgs();
-            if (tags.includes('beta') && message.guild.id !== client.constants.support.guildId) return message.reactForbidden();
+            if (tags.includes('disable') && message.guild.id !== client.constants.ids.guilds.support) return message.send('This command is currently disabled, this is likely to the command be updated or broken.');
             let staffTag = tags.find(t => /staff/g.test(t)),
                 staffMembers = client.constants.staff.filter(s => s.level >= staffTag?.split('-')[0] || 6);
             if (staffTag && !staffMembers?.map(s => s.id).includes(user.id)) return message.reactForbidden();
