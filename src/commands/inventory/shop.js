@@ -1,5 +1,3 @@
-const shop = require('../../json/shop.json');
-
 module.exports = class Shop extends client.commands.class {
     constructor() {
         super({
@@ -15,6 +13,7 @@ module.exports = class Shop extends client.commands.class {
         let products = { item: [], lootbox: [], talisman: [] },
             fields = [];
 
+        const shop = client.constants.shop;
         for (let item of shop)
             products[item.category].push(`**[${item.id}] ${message.emote(item.path)} ${item.name.toTitleCase()} - ${item.price} ${item.currency.toTitleCase()} Each**\n${item.description}`);
         Object.entries(products).forEach(([key, value]) => fields.push([key.toTitleCase(), value.join('\n'), false]))

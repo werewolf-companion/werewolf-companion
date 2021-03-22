@@ -1,5 +1,4 @@
-const LIST = require('../../json/jobs.json'),
-    txtgen = require('random-words'),
+const txtgen = require('random-words'),
     ms = require('pretty-ms');
 
 module.exports = class Work extends client.commands.class {
@@ -14,6 +13,7 @@ module.exports = class Work extends client.commands.class {
     }
 
     async run({ message, args, user }) {
+        const LIST = client.constants.jobs;
         let job = LIST.find(j => j.title === user.job.title);
         if (!job) return Object.merge(message.send(`You don't have a job, get one using the \`${message.prefix}job apply <job>\` command. You can view a list of jobs using \`${message.prefix}jobs\`.`), { skipCooldown: true });
         let activities = ['repeatWords'],
@@ -38,7 +38,7 @@ module.exports = class Work extends client.commands.class {
 
     finishJob(message, user, max, min, currency, success) {
         let payment = Math.floor(Math.random() * (max - min) + min);
-        payment = Math.floor((payment > 0 ? payment : 1) * client.constants.events.work.gold);
+        payment = Math.floor((payment > 0 ? payment : 1) * client.constants.currency.work);
         database.users.set(user.id, Object.merge(user, { job: { hours: ++user.job.hours }, balance: { [currency]: user.balance[currency] + payment } }));
         terminal.currency(`${user.tag} (${user.id}) worked and earned ${payment} ${currency}.`);
 

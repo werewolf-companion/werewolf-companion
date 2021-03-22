@@ -1,5 +1,3 @@
-const LIST = require('../../json/jobs.json');
-
 module.exports = class Job extends client.commands.class {
     constructor() {
         super({
@@ -15,6 +13,8 @@ module.exports = class Job extends client.commands.class {
     async run({ message, args, user }) {
         let option = args[0]?.toLowerCase(),
             prefix = message.prefix;
+
+        const LIST = client.constants.jobs;
 
         if (option === 'apply') {
             if (user.job.title) return message.send(`You currently already work as a ${user.job.title.toTitleCase()}, you can quit your job using \`${prefix}job quit\`.`);

@@ -1,5 +1,4 @@
-const { render, authenticate } = require('../fn'),
-    jobs = require('../../json/jobs.json');
+const { render, authenticate } = require('../fn');
 
 module.exports = {
     init: app => {
@@ -7,7 +6,7 @@ module.exports = {
             let self = await client.users.fetch(req.user.id),
                 user = database.get(self.id, 'user', self);
             if (!user) return render(req, res, 'error.ejs', { error: { code: 404, message: 'Not Found', details: 'No user found within database.' } });
-            render(req, res, 'user.ejs', { user, self, target: self, jobs });
+            render(req, res, 'user.ejs', { user, self, target: self, jobs: client.constants.jobs });
         })
 
         app.get('/user/:id', authenticate, async (req, res) => {
@@ -17,7 +16,7 @@ module.exports = {
             let target = await client.users.fetch(user.id),
                 self = req.user ? await client.users.fetch(req.user.id) : null;
 
-            render(req, res, 'user.ejs', { self, user, target, jobs });
+            render(req, res, 'user.ejs', { self, user, target, jobs: client.constants.jobs });
         })
     }
 }

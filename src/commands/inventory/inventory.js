@@ -1,5 +1,3 @@
-const shop = require('../../json/shop.json');
-
 module.exports = class Inventory extends client.commands.class {
     constructor() {
         super({
@@ -20,6 +18,7 @@ module.exports = class Inventory extends client.commands.class {
         let inventory = user.inventory,
             products = { item: [], lootbox: [], talisman: [] };
 
+        const shop = client.constants.shop;
         Object.entries(inventory).forEach(([key, value]) => {
             let item = shop.find(i => i.id === key);
             if (value > 0) products[item.category].push(`[${key}] ${value} ${item.name.toTitleCase()} ${message.emote(item.path)}`);

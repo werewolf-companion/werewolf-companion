@@ -1,5 +1,3 @@
-const shop = require('../../json/shop.json');
-
 module.exports = class Rose extends client.commands.class {
     constructor() {
         super({

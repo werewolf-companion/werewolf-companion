@@ -1,5 +1,3 @@
-const shop = require('../../json/shop.json');
-
 module.exports = class Buy extends client.commands.class {
     constructor() {
         super({
@@ -19,6 +17,7 @@ module.exports = class Buy extends client.commands.class {
             balance = user.balance,
             inventory = user.inventory;
 
+        const shop = client.constants.shop;
         let item = shop.find(i => i.id === itemId);
         if (!item) return message.send(`No item was found for what was inputted.`);
 
