@@ -1,4 +1,5 @@
-// export command class
+const ms = require('../../../../modules/enhanced-ms');
+
 module.exports = class Command {
     constructor(command = {}) {
         this.name = command.name.replace('-', ' ').words().join('');
@@ -7,7 +8,12 @@ module.exports = class Command {
 
         this.aliases = Array.isArray(command.aliases) ? command.aliases : [];
         this.tags = Array.isArray(command.tags) ? command.tags : [];
-        this.cooldown = command.cooldown > 3000 ? command.cooldown : 3000;
+        this.cooldown =
+            typeof command.cooldown === 'string' ? ms(command.cooldown) :
+                command.cooldown > 3000 ? command.cooldown : 3000;
+
+        this.usages = command.usages || [null];
+        this.examples = command.examples || [null];
 
         const { user, channel, server } = command?.permissions || { user: null, channel: null, server: null };
         this.permissions = {

@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('root-66');
 require('./methods/Object');
 require('./methods/Array');
 require('./methods/String');

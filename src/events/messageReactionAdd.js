@@ -1,5 +1,4 @@
-const Embed = require("../structures/Embed"),
-    TIERS = require('../json/tiers.json');
+const Embed = require("../structures/Embed");
 
 module.exports = class MessageReactionAdd extends client.events.class {
     constructor() {

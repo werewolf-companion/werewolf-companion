@@ -19,7 +19,7 @@ module.exports = class Help extends client.commands.class {
                 ['Commands', `I have close to 40 commands you can use, to view a list use \`${message.prefix}commands\`.`, false],
                 ['Reactions', `Sometimes I will response with a reaction rather than a message, here is what those reactions mean:\n${message.emote('clock')} : This command is on cooldown, slow down.\n${message.emote('missing')} : Missing required inputs.\n${message.emote('forbidden')} : Forbidden, you cannot use this.`, false],
                 ['Settings', `I have a few settings you can change, like the prefix. View the settings by using the \`${message.prefix}settings\` command.`, false],
-                ['Custom Prefix', 'If you happen to not know what my prefix in a server is, simply ping me and I\'ll saying my prefix.', false]
+                ['Custom Prefix', 'If you happen to not know what my prefix in a server is, simply ping me and I\'ll reply saying my prefix.', false]
             ])
         } else {
             let command = client.commands.search(args[0].toLowerCase());

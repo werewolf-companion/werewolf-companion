@@ -3,6 +3,7 @@ const Discord = require('discord.js'),
     EventManager = require('../managers/EventManager'),
     LocaleManager = require('../managers/LocaleManager'),
     TopGGManager = require('../managers/TopGGManager'),
+    GeneratorManager = require('../managers/GeneratorManager'),
 
     Constants = require('../Constants'),
     { exec } = require('child_process'),
@@ -13,13 +14,14 @@ module.exports = class Client extends Discord.Client {
         super(clientOptions);
 
         this.ready = false;
-        this.constants = Constants;
+        this.constants = new Constants();
         this.prefix = '*';
 
         this.events = new EventManager(this);
         this.commands = new CommandManager(this);
         this.locales = new LocaleManager(this);
-        this.topGG = new TopGGManager(this);
+        this.topgg = new TopGGManager(this);
+        this.generate = new GeneratorManager(this);
 
         delete require.cache[path.resolve('../Constants')];
     }

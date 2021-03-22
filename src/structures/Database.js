@@ -34,8 +34,8 @@ module.exports = class Database {
         let result;
         if (kind === 'user') result = this.users.find(u =>
             u.id === value ||
-            u.username?.toLowerCase() === value ||
-            u.username?.toLowerCase() + '#' + u.discriminator === value);
+            u.username?.toLowerCase() === value.toLowerCase() ||
+            u.username?.toLowerCase() + '#' + u.discriminator === value.toLowerCase());
         else if (kind === 'guild') result = this.guilds.find(g =>
             g.id === value ||
             g.name?.toLowerCase() === value);

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head', { page: target.username }) %>
+    <%- include('./partials/head', { page: target.username.replace(/<|>/gi, '') }) %>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
                         <img src="https://enobpih.apteryx.xyz/images/discord.jpg" />
                         <% } %>
                             <span style="font-size: 1.25rem; padding: 1rem; color: gray">
-                                <%- `<span style="font-size: 2.25rem; color: white"><b>${target.username}</b>
+                                <%- `<span style="font-size: 2.25rem; color: white"><b>${target.username.replace(/<|>/gi, '')}</b>
                             </span>#${target.discriminator}` %>
                             </span>
             </div>

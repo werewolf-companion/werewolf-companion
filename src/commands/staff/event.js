@@ -30,7 +30,7 @@ module.exports = class Event extends client.commands.class {
                 eventMessage = null;
 
             if (tag === '-s') {
-                eventMessage = await eventsChannel.send(`New <@&${client.constants.ids.roles.events}>! The **work** command will now give you **x${multiplier} gold** for the next ${ms(timeFrame, { long: true })}!`)
+                eventMessage = await eventsChannel.send(`New <@&${client.constants.ids.roles.events}>! The **work** command will now give you **x${multiplier} gold/roses** for the next ${ms(timeFrame, { long: true })}!`)
                 eventMessage.crosspost();
             }
 

@@ -15,7 +15,7 @@ module.exports = class Daily extends client.commands.class {
     async run({ message, user }) {
         let lastDaily = user.cooldowns.daily,
             twoDays = 86400000 * 2,
-            hasVoted = client.topgg.hasVoted(user.id),
+            hasVoted = await client.topgg.hasVoted(user.id),
             streak = user.stats.streak.daily;
 
         if (Date.now() - lastDaily > twoDays) streak = 1;
@@ -30,32 +30,9 @@ module.exports = class Daily extends client.commands.class {
         terminal.currency(`${user.tag} (${user.id}) claimed their daily reward of ${reward.amount} ${reward.item}, they now have ${user.balance[reward.item] + reward.amount}.`);
 
         return message.send({
-            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Wolvesville Companion on top.gg by clicking [here](${client.topgg.voteLink}!`)}`
+            message, title: 'Daily Reward', description: `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak!\n${(hasVoted ? `You also earned an extra ${message.emote('rose')} for voting for the bot!` : `Want to earn extra rewards? Vote for Wolvesville Companion on top.gg by clicking [here](${client.topgg.voteLink})!`)}`
         })
     }
-
-    /**
-            let streak = user.stats.streak.daily;
-            if (now - lastDaily > twoDays) {
-                database.users.set(user.id, 1, 'stats.streak.daily');
-                streak = 1;
-            } else database.users.math(user.id, '+', 1, 'stats.streak.daily') && streak++;
-    
-            streak = streak + (user.balance.token * 1.5);
-            let reward = this.generateReward(streak > 100 ? 100 : streak),
-                description = '';
-    
-            if (['gold', 'rose', 'gem'].includes(reward.item)) {
-                database.users.math(user.id, '+', reward.amount, `balance.${reward.item}`);
-                terminal.currency(`${user.tag} (${user.id}) claimed their daily reward of ${reward.amount} ${reward.item}, they now have ${user.balance[reward.item] + reward.amount}.`);
-                description = `You claimed your daily reward and got ${reward.amount} ${message.emote(reward.item)}. You're on a ${streak} day streak.`;
-            }
-    
-            if (hasVoted) database.users.math(user.id, '+', 1, 'balance.rose');
-    
-            return message.send({ message, title: 'Daily Reward', description: description + `\n${hasVoted ? `You received your bonus ${message.emote('rose')} for voting for top.gg!` : `Vote for Wolvesville Companion [here]()`}`, footer: 'Come back tomorrow to claim your next reward.' });
-        
-     */
 
     generateReward(streak) {
         streak = Math.round(streak - 1);

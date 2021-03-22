@@ -46,7 +46,7 @@ module.exports = class BotInfo extends client.commands.class {
             ['Developer', `<@!${developer.id}> (${developer.tag})`],
             ['Moderators', mods.join('\n')],
             ['Programmed', `JavaScript\nNodeJS (${process.version})`],
-            ['Source Code', 'https://github.com/ApteryxXYZ/Werewolf-Companion'],
+            ['GitHub', 'https://github.com/Wolvesville-Companion'],
             ['RPi Disk Space', `${disk.total} GB Total\n${disk.used} GB Used\n${disk.free} GB Free`],
             ['RPi Memory', `${memory.total} GB Total\n${memory.free} GB Free\n${memory.available} GB Available`],
             ['RPi Temperature', `CPU ${temperature.cpu}°C`],
