@@ -34,12 +34,12 @@ module.exports = class Event extends client.commands.class {
                 eventMessage.crosspost();
             }
 
-            client.constants.events.work.gold = multiplier;
+            client.constants.currency.work = multiplier;
             message.send('Started a new event in <#' + eventsChannel + '>!');
 
             setTimeout(function () {
                 if (eventMessage) eventMessage.edit('~~' + eventMessage.content + '~~\nEvent has ended.');
-                client.constants.events.work.gold = 1;
+                client.constants.currency.work = 1;
             }, timeFrame)
         }
     }
