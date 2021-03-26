@@ -93,7 +93,8 @@ module.exports = class Message extends client.events.class {
         if (tags.length > 0) {
             if (tags.includes('apteryx') && message.author.id !== client.constants.developer.id) return message.reactForbidden();
             if (tags.includes('args') && args.length < 1) return message.reactNoArgs();
-            if (tags.includes('disable') && message.guild.id !== client.constants.ids.guilds.support) return message.send('This command is currently disabled, this is likely to the command be updated or broken.');
+            if (tags.includes('disable') && message.author.id !== client.constants.developer.id) return message.send('This command is currently disabled, this is likely to the command be updated or broken.');
+            if (tags.includes('beta') && message.guild.id !== client.constants.ids.guilds.support && !message.channel.name.includes('beta')) return message.send('This command is in beta and can only be used by beta testers.');
             let staffTag = tags.find(t => /staff/g.test(t)),
                 staffMembers = client.constants.staff.filter(s => s.level >= staffTag?.split('-')[0] || 6);
             if (staffTag && !staffMembers?.map(s => s.id).includes(user.id)) return message.reactForbidden();
