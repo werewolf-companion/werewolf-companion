@@ -18,3 +18,5 @@ Array.prototype.filterClass = function (object) {
         return this.filter(a => typeof a === n.nm);
     else return this.filter(a => a instanceof object);
 }
+
+Array.prototype.random = function () { return this[Math.floor(Math.random() * this.length)] };
