@@ -1,4 +1,4 @@
-const ms = require('pretty-ms');
+const ms = require('enhanced-ms');
 
 module.exports = class Uptime extends client.commands.class {
     constructor() {

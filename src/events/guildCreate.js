@@ -1,4 +1,4 @@
-const ms = require('pretty-ms');
+const ms = require('enhanced-ms');
 
 module.exports = class GuildCreate extends client.events.class {
     constructor() {

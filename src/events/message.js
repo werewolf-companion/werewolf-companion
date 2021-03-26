@@ -1,4 +1,4 @@
-const ms = require('pretty-ms');
+const ms = require('enhanced-ms');
 
 module.exports = class Message extends client.events.class {
     constructor() {

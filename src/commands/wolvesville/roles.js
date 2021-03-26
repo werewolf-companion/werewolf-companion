@@ -1,5 +1,5 @@
 const Embed = require('../../structures/Embed'),
-    ms = require('pretty-ms');
+    ms = require('enhanced-ms');
 
 module.exports = class Roles extends client.commands.class {
     constructor() {
